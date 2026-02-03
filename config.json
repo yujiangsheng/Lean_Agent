@@ -1,0 +1,30 @@
+{
+  "_comment": "Lean Agent 配置文件",
+  "_version": "0.6.0",
+  
+  "llm": {
+    "model_name": "Qwen/Qwen2.5-7B-Instruct",
+    "device": "auto",
+    "max_length": 2048,
+    "temperature": 0.7,
+    "top_p": 0.9
+  },
+  
+  "lean": {
+    "timeout": 30,
+    "max_tactic_depth": 50
+  },
+  
+  "proof_search": {
+    "beam_width": 10,
+    "max_iterations": 500,
+    "max_depth": 20,
+    "premise_retrieval_k": 20
+  },
+  
+  "conjecture": {
+    "max_candidates": 100,
+    "min_interestingness": 0.3,
+    "domains": ["nat", "int", "list", "algebra"]
+  }
+}

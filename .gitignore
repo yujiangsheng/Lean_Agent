@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Lean
+.lake/
+lakefile.olean
+lean_packages/
+
+# LeanDojo cache
+.leandojo_cache/
+traced_repos/
+
+# Model weights
+models/
+*.bin
+*.safetensors
+
+# Logs
+logs/
+*.log
+
+# Data
+data/
+*.jsonl
+*.json
+!config.json
+
+# OS
+.DS_Store
+Thumbs.db
