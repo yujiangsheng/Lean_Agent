@@ -52,10 +52,9 @@ logs/
 *.log
 
 # Data
-data/
 *.jsonl
-*.json
 !config.json
+!data/*.json
 
 # OS
 .DS_Store

@@ -1,0 +1,1809 @@
+{
+  "experiences": [
+    {
+      "conjecture_id": "nt_1770107377744_536",
+      "statement": "∀ n : ℕ, σ(n) ≥ n + 1 (对 n > 1)",
+      "statement_cn": "约数和下界",
+      "domain": "number_theory",
+      "tactics_used": [
+        "intros",
+        "nlinarith"
+      ],
+      "proof_time_ms": 0.0007152557373046875,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 1.0,
+        "has_exists": 0.765625,
+        "has_implication": 0.9798583984375,
+        "has_inequality": 0.95068359375,
+        "has_equality": 0.84033203125,
+        "has_power": 0.033203125,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.1260986328125,
+        "has_trig": 0.0,
+        "statement_length": 57.40875244140625,
+        "num_variables": 6.423736572265625,
+        "domain_code": 3.0
+      },
+      "premises_used": [],
+      "timestamp": "2026-02-03T00:29:37.768057",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "derived_1770107377753_232",
+      "statement": "∀ n : ℕ, n ≥ 2 → π(n) ≤ n/2",
+      "statement_cn": "素数计数上界",
+      "domain": "number_theory",
+      "tactics_used": [
+        "intros",
+        "linarith"
+      ],
+      "proof_time_ms": 0.00095367431640625,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 1.0,
+        "has_exists": 0.04296875,
+        "has_implication": 0.23046875,
+        "has_inequality": 0.74609375,
+        "has_equality": 0.482421875,
+        "has_power": 0.0,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.126953125,
+        "has_trig": 0.0,
+        "statement_length": 66.28515625,
+        "num_variables": 6.55859375,
+        "domain_code": 3.0
+      },
+      "premises_used": [
+        "nt_thm_legendre",
+        "nt_axiom_gcd"
+      ],
+      "timestamp": "2026-02-03T00:29:37.775665",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "cross_1770145783723_652",
+      "statement": "∫_{-∞}^{∞} e^(-x²) dx = √π",
+      "statement_cn": "Gaussian 积分",
+      "domain": "cross_domain",
+      "tactics_used": [
+        "intros",
+        "linarith"
+      ],
+      "proof_time_ms": 0.00095367431640625,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 0.6875,
+        "has_exists": 0.125,
+        "has_implication": 0.15625,
+        "has_inequality": 0.03125,
+        "has_equality": 0.953125,
+        "has_power": 0.84375,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.53125,
+        "has_trig": 0.5078125,
+        "statement_length": 49.28125,
+        "num_variables": 1.328125,
+        "domain_code": 3.0
+      },
+      "premises_used": [
+        "prob_thm_expectation",
+        "deep_chain_1770111322499_694"
+      ],
+      "timestamp": "2026-02-03T11:09:46.180192",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "calc_1770143643130_378",
+      "statement": "∀ f : ℝ → ℝ, lim_{x→0} sin(x)/x = 1",
+      "statement_cn": "重要极限",
+      "domain": "calculus",
+      "tactics_used": [
+        "intros",
+        "nlinarith"
+      ],
+      "proof_time_ms": 0.00095367431640625,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 1.0,
+        "has_exists": 0.015625,
+        "has_implication": 0.875,
+        "has_inequality": 0.0078125,
+        "has_equality": 1.0,
+        "has_power": 0.0625,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.984375,
+        "has_trig": 0.2890625,
+        "statement_length": 52.8984375,
+        "num_variables": 6.984375,
+        "domain_code": 3.0
+      },
+      "premises_used": [],
+      "timestamp": "2026-02-03T10:34:05.594141",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "deep_chain_1770110873957_389",
+      "statement": "(∀ a b c : ℝ, a ≥ 0 → b ≥ 0 → c ≥ 0 → a^4*(a-b)*(a-c) + b^4*(b-a)*(b-c) + c^4*(c-a)*(c-b) ≥ 0)[a=b]",
+      "statement_cn": "【4步推理】Schur 不等式 (t=4) 的对称情形",
+      "domain": "algebra",
+      "tactics_used": [
+        "intros",
+        "nlinarith [sq_nonneg _]"
+      ],
+      "proof_time_ms": 0.00095367431640625,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 0.9999999986030161,
+        "has_exists": 0.0,
+        "has_implication": 8.620927110314369e-05,
+        "has_inequality": 0.1251168162561953,
+        "has_equality": 1.5228668768712327e-08,
+        "has_power": 2.53654298230584e-07,
+        "has_sqrt": 1.637090463196565e-11,
+        "has_fraction": 7.0485839387998066e-12,
+        "has_trig": 0.0,
+        "statement_length": 59.00000131893712,
+        "num_variables": 3.9394792425348424,
+        "domain_code": 0.0
+      },
+      "premises_used": [
+        "algebra_axiom_3",
+        "deep_chain_1770110702581_863",
+        "strengthened_1770110702641_414",
+        "derived_1770110696382_732"
+      ],
+      "timestamp": "2026-02-03T01:27:54.058652",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "cross_1770107388867_916",
+      "statement": "∀ p n k : ℕ, Prime p → C(n,k) ≡ C(n mod p, k mod p) * C(n/p, k/p) (mod p)",
+      "statement_cn": "Lucas 定理",
+      "domain": "cross_domain",
+      "tactics_used": [
+        "intros",
+        "nlinarith"
+      ],
+      "proof_time_ms": 0.00095367431640625,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 1.0,
+        "has_inequality": 0.0,
+        "has_equality": 0.0,
+        "has_power": 0.0,
+        "has_sqrt": 0.0,
+        "has_fraction": 1.0,
+        "has_trig": 0.0,
+        "statement_length": 73,
+        "num_variables": 15,
+        "domain_code": 3
+      },
+      "premises_used": [
+        "derived_1770107377753_232",
+        "calc_thm_cos_deriv"
+      ],
+      "timestamp": "2026-02-03T00:29:48.889787",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "strengthened_1770110442873_640",
+      "statement": "∀ a b : ℝ, a > 0 → b > 0 → (a+b)/2 > (a * b)^(1/2)",
+      "statement_cn": "2元 AM-GM 不等式（严格形式）",
+      "domain": "algebra",
+      "tactics_used": [
+        "intros",
+        "ring"
+      ],
+      "proof_time_ms": 0.0,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.3750000018726469,
+        "has_inequality": 0.3789062518726469,
+        "has_equality": 0.6250000000009095,
+        "has_power": 0.8750000000000018,
+        "has_sqrt": 4.120001785819947e-18,
+        "has_fraction": 0.125,
+        "has_trig": 0.0,
+        "statement_length": 90.375,
+        "num_variables": 15.371132014354767,
+        "domain_code": 0.0
+      },
+      "premises_used": [
+        "derived_1770107397399_923"
+      ],
+      "timestamp": "2026-02-03T01:20:42.926348",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "deep_chain_1770111842971_491",
+      "statement": "stronger_condition(continuous_analog(boundary_case(通过代入: 通过代入: limit_case(continuous_analog((∀ α β : ℝ, Rea...)))",
+      "statement_cn": "【4步推理】【2步推理】【2步推理】【4步推理】将 【2步推理】将 【4步推理】【4步推理】正弦和化积 的对称情形 的类比（离散 → 连续）（考虑极限） 代入 【2步推理】积化和差（余弦） 的二元情形 代入 余弦差化积（添加边界情况） 的类比（离散 → 连续）（加强条件）",
+      "domain": "trigonometry",
+      "tactics_used": [
+        "intros",
+        "simp [Real.sin_sq_add_cos_sq]"
+      ],
+      "proof_time_ms": 0.00095367431640625,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 0.9999999999872671,
+        "has_exists": 0.0,
+        "has_implication": 1.3808217202083704e-15,
+        "has_inequality": 3.0092670179638155e-36,
+        "has_equality": 0.5000038472953676,
+        "has_power": 2.011169009108475e-13,
+        "has_sqrt": 6.879105134148699e-136,
+        "has_fraction": 9.305264889226835e-13,
+        "has_trig": 0.8750038473099195,
+        "statement_length": 81.49999999999977,
+        "num_variables": 0.8113861037002562,
+        "domain_code": 1.0
+      },
+      "premises_used": [
+        "deep_chain_1770110908684_140",
+        "deep_chain_1770111799498_104",
+        "deep_chain_1770110951008_584",
+        "deep_chain_1770110700381_617"
+      ],
+      "timestamp": "2026-02-03T01:44:03.860624",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "derived_1770110696694_249",
+      "statement": "∀ θ : ℝ, 0 < θ → θ < π/2 → Real.sin θ > θ - θ^3/6",
+      "statement_cn": "正弦 Taylor 下界",
+      "domain": "trigonometry",
+      "tactics_used": [
+        "intros",
+        "ring"
+      ],
+      "proof_time_ms": 0.00095367431640625,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 0.9999999999998934,
+        "has_exists": 0.0,
+        "has_implication": 1.1530194026511233e-19,
+        "has_inequality": 1.1519648082658639e-19,
+        "has_equality": 0.5000000000000058,
+        "has_power": 0.5,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.5,
+        "has_trig": 0.7500000000000058,
+        "statement_length": 82.0,
+        "num_variables": 1.250488284975067,
+        "domain_code": 1.0
+      },
+      "premises_used": [
+        "trig_axiom_2",
+        "derived_1770107397537_803"
+      ],
+      "timestamp": "2026-02-03T01:24:56.733403",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "deep_chain_1770111374985_605",
+      "statement": "∀ k, power_generalize(contrapose(∀ θ : ℝ, 0 < θ → θ < π/2 → Real.tan θ > θ), k)",
+      "statement_cn": "【3步推理】【3步推理】正切下界（第一象限） 的逆否命题 推广到任意次幂",
+      "domain": "trigonometry",
+      "tactics_used": [
+        "intros",
+        "simp [Real.sin_two_mul, Real.cos_two_mul]"
+      ],
+      "proof_time_ms": 0.00095367431640625,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 0.999992847442627,
+        "has_exists": 0.0,
+        "has_implication": 0.7500000000293809,
+        "has_inequality": 0.25,
+        "has_equality": 0.7500457912100842,
+        "has_power": 0.7500000020982043,
+        "has_sqrt": 1.1591269220898192e-69,
+        "has_fraction": 0.2500000009740119,
+        "has_trig": 0.7500534206046154,
+        "statement_length": 295.00000012404314,
+        "num_variables": 7.2586684260927425,
+        "domain_code": 1.0
+      },
+      "premises_used": [
+        "deep_chain_1770111053029_609",
+        "deep_chain_1770111164769_864",
+        "deep_chain_1770111005411_130"
+      ],
+      "timestamp": "2026-02-03T01:36:15.445337",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "deep_chain_1770110879605_542",
+      "statement": "(∀ x y, sum_ineq(int_analog(contrapose(∀ a b c : ℝ, a > 0 → b > 0 → c > 0 → a + b > c → valid_triangle a b c)), probabilistic_analog(mul_analog(∀ n, generalize(∀ a b c : ℝ, a > 0 → b > 0 → c > 0 → a + b > c → valid_triangle a b c, n)))))[x=1]",
+      "statement_cn": "【4步推理】【2步推理】【2步推理】三角形存在条件 的逆否命题 的类比（实数 → 整数） 与 【4步推理】【4步推理】三角形存在条件 推广到 n 维 的类比（加法 → 乘法） 的类比（确定 → 随机） 的叠加 的单位情形",
+      "domain": "geometry",
+      "tactics_used": [
+        "intros",
+        "nlinarith"
+      ],
+      "proof_time_ms": 0.0007152557373046875,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.5,
+        "has_inequality": 0.5,
+        "has_equality": 0.5,
+        "has_power": 0.5,
+        "has_sqrt": 2.898193151280066e-70,
+        "has_fraction": 0.5,
+        "has_trig": 0.0,
+        "statement_length": 335.0,
+        "num_variables": 17.500001906883007,
+        "domain_code": 2.0
+      },
+      "premises_used": [
+        "deep_chain_1770110875140_904",
+        "deep_chain_1770110702232_895",
+        "deep_chain_1770110700774_519",
+        "deep_chain_1770110698112_877"
+      ],
+      "timestamp": "2026-02-03T01:27:59.756812",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "deep_chain_1770111212854_660",
+      "statement": "contrapose(3d_analog(∀ a b c x y z : ℝ, a ≥ b → b ≥ c → x ≥ y → y ≥ z → (a*x + b*y + c*z)/3 ≥ ((a+b+c)/3)*((x+y+z)/3)))",
+      "statement_cn": "【2步推理】【2步推理】Chebyshev 不等式 的类比（平面 → 空间） 的逆否命题",
+      "domain": "algebra",
+      "tactics_used": [
+        "intros",
+        "nlinarith"
+      ],
+      "proof_time_ms": 0.00095367431640625,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.5038895905017782,
+        "has_inequality": 0.5273423492908478,
+        "has_equality": 1.4552201751458453e-09,
+        "has_power": 1.9103288650512695e-05,
+        "has_sqrt": 9.623777330636881e-10,
+        "has_fraction": 3.843742198496172e-06,
+        "has_trig": 0.0,
+        "statement_length": 74.00016502190938,
+        "num_variables": 4.452533434852552,
+        "domain_code": 0.0
+      },
+      "premises_used": [
+        "deep_chain_1770110985776_486",
+        "deep_chain_1770111122052_550"
+      ],
+      "timestamp": "2026-02-03T01:33:33.791799",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "deep_chain_1770111551941_376",
+      "statement": "probabilistic_analog(3d_analog(∀ k, power_generalize(int_analog(∀ x1 y1 z1 x2 y2 z2 : ℝ, (x1*x2 + y1*y2 + z1*z2)^2 ≤ (x1^2 + y1^2 + z1^2)*(x2^2 + y2^2 + z2^2)), k)))",
+      "statement_cn": "【2步推理】【4步推理】【4步推理】三维 Cauchy-Schwarz 的类比（实数 → 整数） 推广到任意次幂 的类比（平面 → 空间） 的类比（确定 → 随机）",
+      "domain": "geometry",
+      "tactics_used": [
+        "intros",
+        "linarith"
+      ],
+      "proof_time_ms": 0.00095367431640625,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 0.9999999925494194,
+        "has_exists": 0.0,
+        "has_implication": 0.5000000017494951,
+        "has_inequality": 0.5000000017494951,
+        "has_equality": 0.5000000003644307,
+        "has_power": 0.5000000018626453,
+        "has_sqrt": 0.5000000037252903,
+        "has_fraction": 1.3642509448137542e-12,
+        "has_trig": 1.0853314206470105e-165,
+        "statement_length": 165.00000000247493,
+        "num_variables": 7.003671876999546,
+        "domain_code": 2.0
+      },
+      "premises_used": [
+        "deep_chain_1770110885112_341",
+        "deep_chain_1770110698101_658"
+      ],
+      "timestamp": "2026-02-03T01:39:12.925338",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "deep_chain_1770143640080_112",
+      "statement": "continuous_analog(mul_analog(∀ x y, sum_ineq(boundary_case(contrapose((contrapose(∀ a b c d : ℝ, a > 0 → b > 0 → c > 0 → d > 0 → convex_quad_area ≤ (a*c + b*d)/2))[n=3])), ∀ n, generalize(weaker_conclusion(int_analog(stronger_condition(∀ x, (∀ z : ℂ, ∀ x1 y1 z1 x2 y2 z2 : ℝ, (x1*x2 + y1*y2 + z1*z2)^2 ≤ (x1^2 + y1^2 + z1^2)*(x2^2 + y2^2 + z2^2)) ∧ (∀ n, generalize(∀ x y, sum_ineq(int_analog(contrapose(∀ a b c : ℝ, a > 0 → b > 0 → c > 0 → a + b > c → valid_triangle a b c)), probabilistic_analog(mul_analog(∀ n, generalize(∀ a b c : ℝ, a > 0 → b > 0 → c > 0 → a + b > c → valid_triangle a b c, n)))), n)) → ...))), n))))",
+      "statement_cn": "【3步推理】【3步推理】【3步推理】【3步推理】【3步推理】【3步推理】【4步推理】凸四边形面积上界 的逆否命题 的三元情形 的逆否命题（添加边界情况） 与 【4步推理】【2步推理】【2步推理】【3步推理】【3步推理】【3步推理】三维 Cauchy-Schwarz 推广到复数域 与 【4步推理】【2步推理】【2步推理】三角形存在条件 的逆否命题 的类比（实数 → 整数） 与 【4步推理】【4步推理】三角形存在条件 推广到 n 维 的类比（加法 → 乘法） 的类比（确定 → 随机） 的叠加 推广到 n 维 的联合推论（加强条件） 的类比（实数 → 整数）（弱化结论） 推广到 n 维 的叠加 的类比（加法 → 乘法） 的类比（离散 → 连续）",
+      "domain": "mixed",
+      "tactics_used": [
+        "intros",
+        "nlinarith"
+      ],
+      "proof_time_ms": 0.0016689300537109375,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 1.0,
+        "has_inequality": 1.0,
+        "has_equality": 1.0,
+        "has_power": 1.0,
+        "has_sqrt": 0.25,
+        "has_fraction": 0.5,
+        "has_trig": 0.0,
+        "statement_length": 565.0,
+        "num_variables": 47.75,
+        "domain_code": 3.0
+      },
+      "premises_used": [
+        "strengthened_1770129964810_824",
+        "deep_chain_1770111911283_770",
+        "deep_chain_1770123613262_859"
+      ],
+      "timestamp": "2026-02-03T10:34:04.862053",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "deep_chain_1770143623428_841",
+      "statement": "通过代入: ∀ k, power_generalize(contrapose(∀ n, generalize((...",
+      "statement_cn": "【2步推理】将 【2步推理】【4步推理】【2步推理】【3步推理】【2步推理】将 【4步推理】【4步推理】正弦和化积 的对称情形 的类比（离散 → 连续）（考虑极限） 代入 【2步推理】积化和差（余弦） 的二元情形 与 【4步推理】【4步推理】正弦和化积 的类比（加法 → 乘法）（添加边界情况） 的联合推论 的单位情形 推广到 n 维 的逆否命题 推广到任意次幂 代入 【2步推理】【3步推理】【2步推理】【3步推理】【2步推理】【3步推理】正弦2次降幂 的单位情形 与 【2步推理】【2步推理】【2步推理】【3步推理】【4步推理】【2步推理】积化和差（余弦） 与 4倍角正切公式 的联合推论 的逆否命题 的逆否命题 的单位情形 推广到矩阵 的逆否命题 的联合推论 的二元情形 的逆否命题（添加边界情况） 推广到复数域",
+      "domain": "mixed",
+      "tactics_used": [
+        "intros",
+        "linarith"
+      ],
+      "proof_time_ms": 0.00095367431640625,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.0,
+        "has_inequality": 0.0,
+        "has_equality": 0.0,
+        "has_power": 0.0,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.0,
+        "has_trig": 0.0,
+        "statement_length": 59,
+        "num_variables": 2,
+        "domain_code": 3
+      },
+      "premises_used": [
+        "deep_chain_1770125917014_731",
+        "deep_chain_1770115303448_545",
+        "deep_chain_1770111036904_266",
+        "deep_chain_1770127343936_912"
+      ],
+      "timestamp": "2026-02-03T10:33:46.626232",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "comb_1770143657619_295",
+      "statement": "∀ n : ℕ, B(n) ≤ n^n (Bell number)",
+      "statement_cn": "Bell 数上界",
+      "domain": "combinatorics",
+      "tactics_used": [
+        "intros",
+        "linarith"
+      ],
+      "proof_time_ms": 0.00095367431640625,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.0,
+        "has_inequality": 0.0078125,
+        "has_equality": 0.9921875,
+        "has_power": 0.2109375,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.1875,
+        "has_trig": 0.0,
+        "statement_length": 43.640625,
+        "num_variables": 1.5,
+        "domain_code": 3.0
+      },
+      "premises_used": [],
+      "timestamp": "2026-02-03T10:34:18.819940",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "prob_1770143624911_486",
+      "statement": "∀ X : RV, Poisson(λ) → E[X] = Var(X) = λ",
+      "statement_cn": "Poisson 分布性质",
+      "domain": "probability",
+      "tactics_used": [
+        "intros",
+        "linarith"
+      ],
+      "proof_time_ms": 0.0,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.5,
+        "has_inequality": 0.2578125,
+        "has_equality": 0.578125,
+        "has_power": 0.0,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.3984375,
+        "has_trig": 0.0,
+        "statement_length": 46.03125,
+        "num_variables": 1.921875,
+        "domain_code": 3.0
+      },
+      "premises_used": [],
+      "timestamp": "2026-02-03T10:33:47.689870",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "la_1770143625359_121",
+      "statement": "∀ u v : Vector, |u·v| ≤ |u|*|v|",
+      "statement_cn": "向量 Cauchy-Schwarz",
+      "domain": "linear_algebra",
+      "tactics_used": [
+        "intros",
+        "nlinarith"
+      ],
+      "proof_time_ms": 0.0007152557373046875,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.40625,
+        "has_inequality": 0.15625,
+        "has_equality": 0.96875,
+        "has_power": 0.28125,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.28125,
+        "has_trig": 0.0,
+        "statement_length": 68.875,
+        "num_variables": 2.0625,
+        "domain_code": 3.0
+      },
+      "premises_used": [],
+      "timestamp": "2026-02-03T10:33:48.113083",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "derived_1770144574448_887",
+      "statement": "∀ X : RV, a > 0 → P(|X| ≥ a) ≤ E[|X|]/a",
+      "statement_cn": "Markov 不等式",
+      "domain": "probability",
+      "tactics_used": [
+        "intros",
+        "nlinarith"
+      ],
+      "proof_time_ms": 0.00095367431640625,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 0.5,
+        "has_exists": 0.0,
+        "has_implication": 0.21875,
+        "has_inequality": 0.046875,
+        "has_equality": 0.953125,
+        "has_power": 0.0,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.015625,
+        "has_trig": 0.0,
+        "statement_length": 32.125,
+        "num_variables": 0.828125,
+        "domain_code": 3.0
+      },
+      "premises_used": [
+        "prob_axiom_total",
+        "prob_thm_expectation"
+      ],
+      "timestamp": "2026-02-03T10:49:36.553436",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "la_1770145764301_215",
+      "statement": "∀ A : Matrix, A*A^(-1) = I",
+      "statement_cn": "逆矩阵定义",
+      "domain": "linear_algebra",
+      "tactics_used": [
+        "intros",
+        "linarith"
+      ],
+      "proof_time_ms": 0.00095367431640625,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0625,
+        "has_implication": 0.0625,
+        "has_inequality": 0.0,
+        "has_equality": 1.0,
+        "has_power": 0.8125,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.0,
+        "has_trig": 0.0,
+        "statement_length": 38.75,
+        "num_variables": 0.0625,
+        "domain_code": 3.0
+      },
+      "premises_used": [],
+      "timestamp": "2026-02-03T11:09:27.934763",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "deep_chain_1770144739608_536",
+      "statement": "contrapose(∀ n k : ℕ, k ≤ n → P(n, k) = n!/(n-k)!)",
+      "statement_cn": "【5步推理, 质量0.57】排列数公式 的逆否命题",
+      "domain": "combinatorics",
+      "tactics_used": [
+        "intros",
+        "nlinarith"
+      ],
+      "proof_time_ms": 0.00095367431640625,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.21875,
+        "has_inequality": 0.46875,
+        "has_equality": 0.71875,
+        "has_power": 0.78125,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.625,
+        "has_trig": 0.0,
+        "statement_length": 62.21875,
+        "num_variables": 6.59375,
+        "domain_code": 3.0
+      },
+      "premises_used": [
+        "comb_thm_derangement",
+        "comb_thm_pascal",
+        "comb_thm_perm",
+        "comb_axiom_add",
+        "comb_thm_catalan"
+      ],
+      "timestamp": "2026-02-03T10:52:22.629854",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "deep_chain_1770144689732_897",
+      "statement": "∀ k, power_generalize(∀ l : Line, π : Plane, l ⊥ π ↔ ∀ m : Line, m ⊂ π → l ⊥ m, k)",
+      "statement_cn": "【7步推理, 质量0.67】线面垂直判定 推广到任意次幂",
+      "domain": "solid_geometry",
+      "tactics_used": [
+        "intros",
+        "linarith"
+      ],
+      "proof_time_ms": 0.0011920928955078125,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 1.0,
+        "has_exists": 0.5234375,
+        "has_implication": 0.8515625,
+        "has_inequality": 0.28125,
+        "has_equality": 0.484375,
+        "has_power": 0.125,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.375,
+        "has_trig": 0.0,
+        "statement_length": 73.2421875,
+        "num_variables": 3.015625,
+        "domain_code": 3.0
+      },
+      "premises_used": [
+        "sg_thm_dihedral",
+        "sg_thm_three_perp",
+        "sg_thm_cone_volume",
+        "sg_thm_line_perp_plane",
+        "sg_thm_pyramid_volume",
+        "sg_thm_sphere_surface",
+        "sg_axiom_parallel"
+      ],
+      "timestamp": "2026-02-03T10:51:33.099096",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "derived_1770146897702_579",
+      "statement": "∀ a b : ℝ, a > b > 0 → x²/a² + y²/b² = 1 表示椭圆",
+      "statement_cn": "椭圆标准方程",
+      "domain": "analytic_geometry",
+      "tactics_used": [
+        "intros",
+        "linarith"
+      ],
+      "proof_time_ms": 0.00095367431640625,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.625,
+        "has_inequality": 0.5625,
+        "has_equality": 1.0,
+        "has_power": 0.0,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.625,
+        "has_trig": 0.0,
+        "statement_length": 51.375,
+        "num_variables": 2.375,
+        "domain_code": 3.0
+      },
+      "premises_used": [
+        "ag_thm_parallel_slope",
+        "deep_chain_1770145658870_974"
+      ],
+      "timestamp": "2026-02-03T11:28:19.154796",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "derived_1770144594202_886",
+      "statement": "∀ f : ℝ → ℝ, ∃ c ∈ (a,b), f(b) - f(a) = f'(c) * (b-a)",
+      "statement_cn": "中值定理",
+      "domain": "calculus",
+      "tactics_used": [
+        "intros",
+        "linarith"
+      ],
+      "proof_time_ms": 0.00095367431640625,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 1.0,
+        "has_exists": 0.03125,
+        "has_implication": 0.625,
+        "has_inequality": 0.53125,
+        "has_equality": 1.0,
+        "has_power": 0.875,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.78125,
+        "has_trig": 0.0,
+        "statement_length": 33.375,
+        "num_variables": 6.3125,
+        "domain_code": 3.0
+      },
+      "premises_used": [
+        "calc_axiom_integral",
+        "calc_thm_chain_rule"
+      ],
+      "timestamp": "2026-02-03T10:49:55.852545",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "deep_chain_1770144691512_559",
+      "statement": "contrapose(∀ l : Line, π : Plane, PO PA : Line, l ⊥ π ∧ PA ⊂ π ∧ O = l ∩ π → (PO ⊥ PA ↔ OA ⊥ PA))",
+      "statement_cn": "【5步推理, 质量0.59】三垂线定理 的逆否命题",
+      "domain": "solid_geometry",
+      "tactics_used": [
+        "intros",
+        "nlinarith"
+      ],
+      "proof_time_ms": 0.0016689300537109375,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 1.0,
+        "has_exists": 0.078125,
+        "has_implication": 0.828125,
+        "has_inequality": 0.0,
+        "has_equality": 0.9375,
+        "has_power": 0.5,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.03125,
+        "has_trig": 0.0,
+        "statement_length": 102.765625,
+        "num_variables": 2.265625,
+        "domain_code": 3.0
+      },
+      "premises_used": [
+        "sg_axiom_line_plane",
+        "deep_chain_1770144456499_998",
+        "sg_thm_three_perp",
+        "sg_thm_plane_parallel"
+      ],
+      "timestamp": "2026-02-03T10:51:33.115922",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "derived_1770146896960_492",
+      "statement": "∀ a b : ℝ, a > 0 → b > 0 → x²/a² - y²/b² = 1 表示双曲线",
+      "statement_cn": "双曲线标准方程",
+      "domain": "analytic_geometry",
+      "tactics_used": [
+        "intros",
+        "nlinarith"
+      ],
+      "proof_time_ms": 0.0019073486328125,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.5,
+        "has_inequality": 0.5,
+        "has_equality": 1.0,
+        "has_power": 0.0,
+        "has_sqrt": 0.0,
+        "has_fraction": 1.0,
+        "has_trig": 0.0,
+        "statement_length": 80.5,
+        "num_variables": 3.5,
+        "domain_code": 3.0
+      },
+      "premises_used": [
+        "derived_1770144468168_628",
+        "derived_1770144735616_357"
+      ],
+      "timestamp": "2026-02-03T11:28:19.140667",
+      "success": true,
+      "notes": ""
+    },
+    {
+      "conjecture_id": "test_exp",
+      "statement": "theorem test : True := by trivial",
+      "statement_cn": "测试定理",
+      "domain": "algebra",
+      "tactics_used": [
+        "simp",
+        "ring"
+      ],
+      "proof_time_ms": 100.0,
+      "proof_steps": 2,
+      "features": {
+        "has_forall": 0.0,
+        "has_exists": 0.0,
+        "has_implication": 0.0,
+        "has_inequality": 0.0,
+        "has_equality": 1.0,
+        "has_power": 0.0,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.0,
+        "has_trig": 0.0,
+        "statement_length": 33,
+        "num_variables": 0,
+        "domain_code": 0
+      },
+      "premises_used": [],
+      "timestamp": "2026-02-03T11:25:28.060307",
+      "success": true,
+      "notes": ""
+    }
+  ],
+  "tactic_patterns": {
+    "number_theory::intros,nlinarith": {
+      "pattern_id": "number_theory::intros,nlinarith",
+      "tactics": [
+        "intros",
+        "nlinarith"
+      ],
+      "domain": "number_theory",
+      "applicable_features": {
+        "has_forall": 1.0,
+        "has_exists": 0.765625,
+        "has_implication": 0.9798583984375,
+        "has_inequality": 0.95068359375,
+        "has_equality": 0.84033203125,
+        "has_power": 0.033203125,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.1260986328125,
+        "has_trig": 0.0,
+        "statement_length": 57.40875244140625,
+        "num_variables": 6.423736572265625,
+        "domain_code": 3.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.0007152557373046875,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "number_theory::intros,linarith": {
+      "pattern_id": "number_theory::intros,linarith",
+      "tactics": [
+        "intros",
+        "linarith"
+      ],
+      "domain": "number_theory",
+      "applicable_features": {
+        "has_forall": 1.0,
+        "has_exists": 0.04296875,
+        "has_implication": 0.23046875,
+        "has_inequality": 0.74609375,
+        "has_equality": 0.482421875,
+        "has_power": 0.0,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.126953125,
+        "has_trig": 0.0,
+        "statement_length": 66.28515625,
+        "num_variables": 6.55859375,
+        "domain_code": 3.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.00095367431640625,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "cross_domain::intros,linarith": {
+      "pattern_id": "cross_domain::intros,linarith",
+      "tactics": [
+        "intros",
+        "linarith"
+      ],
+      "domain": "cross_domain",
+      "applicable_features": {
+        "has_forall": 0.6875,
+        "has_exists": 0.125,
+        "has_implication": 0.15625,
+        "has_inequality": 0.03125,
+        "has_equality": 0.953125,
+        "has_power": 0.84375,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.53125,
+        "has_trig": 0.5078125,
+        "statement_length": 49.28125,
+        "num_variables": 1.328125,
+        "domain_code": 3.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.00095367431640625,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "calculus::intros,nlinarith": {
+      "pattern_id": "calculus::intros,nlinarith",
+      "tactics": [
+        "intros",
+        "nlinarith"
+      ],
+      "domain": "calculus",
+      "applicable_features": {
+        "has_forall": 1.0,
+        "has_exists": 0.015625,
+        "has_implication": 0.875,
+        "has_inequality": 0.0078125,
+        "has_equality": 1.0,
+        "has_power": 0.0625,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.984375,
+        "has_trig": 0.2890625,
+        "statement_length": 52.8984375,
+        "num_variables": 6.984375,
+        "domain_code": 3.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.00095367431640625,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "algebra::intros,nlinarith [sq_nonneg _]": {
+      "pattern_id": "algebra::intros,nlinarith [sq_nonneg _]",
+      "tactics": [
+        "intros",
+        "nlinarith [sq_nonneg _]"
+      ],
+      "domain": "algebra",
+      "applicable_features": {
+        "has_forall": 0.9999999986030161,
+        "has_exists": 0.0,
+        "has_implication": 8.620927110314369e-05,
+        "has_inequality": 0.1251168162561953,
+        "has_equality": 1.5228668768712327e-08,
+        "has_power": 2.53654298230584e-07,
+        "has_sqrt": 1.637090463196565e-11,
+        "has_fraction": 7.0485839387998066e-12,
+        "has_trig": 0.0,
+        "statement_length": 59.00000131893712,
+        "num_variables": 3.9394792425348424,
+        "domain_code": 0.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.00095367431640625,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "cross_domain::intros,nlinarith": {
+      "pattern_id": "cross_domain::intros,nlinarith",
+      "tactics": [
+        "intros",
+        "nlinarith"
+      ],
+      "domain": "cross_domain",
+      "applicable_features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 1.0,
+        "has_inequality": 0.0,
+        "has_equality": 0.0,
+        "has_power": 0.0,
+        "has_sqrt": 0.0,
+        "has_fraction": 1.0,
+        "has_trig": 0.0,
+        "statement_length": 73.0,
+        "num_variables": 15.0,
+        "domain_code": 3.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.00095367431640625,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "algebra::intros,ring": {
+      "pattern_id": "algebra::intros,ring",
+      "tactics": [
+        "intros",
+        "ring"
+      ],
+      "domain": "algebra",
+      "applicable_features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.3750000018726469,
+        "has_inequality": 0.3789062518726469,
+        "has_equality": 0.6250000000009095,
+        "has_power": 0.8750000000000018,
+        "has_sqrt": 4.120001785819947e-18,
+        "has_fraction": 0.125,
+        "has_trig": 0.0,
+        "statement_length": 90.375,
+        "num_variables": 15.371132014354767,
+        "domain_code": 0.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.0,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "trigonometry::intros,simp [Real.sin_sq_add_cos_sq]": {
+      "pattern_id": "trigonometry::intros,simp [Real.sin_sq_add_cos_sq]",
+      "tactics": [
+        "intros",
+        "simp [Real.sin_sq_add_cos_sq]"
+      ],
+      "domain": "trigonometry",
+      "applicable_features": {
+        "has_forall": 0.9999999999872671,
+        "has_exists": 0.0,
+        "has_implication": 1.3808217202083704e-15,
+        "has_inequality": 3.0092670179638155e-36,
+        "has_equality": 0.5000038472953676,
+        "has_power": 2.011169009108475e-13,
+        "has_sqrt": 6.879105134148699e-136,
+        "has_fraction": 9.305264889226835e-13,
+        "has_trig": 0.8750038473099195,
+        "statement_length": 81.49999999999977,
+        "num_variables": 0.8113861037002562,
+        "domain_code": 1.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.00095367431640625,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "trigonometry::intros,ring": {
+      "pattern_id": "trigonometry::intros,ring",
+      "tactics": [
+        "intros",
+        "ring"
+      ],
+      "domain": "trigonometry",
+      "applicable_features": {
+        "has_forall": 0.9999999999998934,
+        "has_exists": 0.0,
+        "has_implication": 1.1530194026511233e-19,
+        "has_inequality": 1.1519648082658639e-19,
+        "has_equality": 0.5000000000000058,
+        "has_power": 0.5,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.5,
+        "has_trig": 0.7500000000000058,
+        "statement_length": 82.0,
+        "num_variables": 1.250488284975067,
+        "domain_code": 1.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.00095367431640625,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "trigonometry::intros,simp [Real.sin_two_mul, Real.cos_two_mul]": {
+      "pattern_id": "trigonometry::intros,simp [Real.sin_two_mul, Real.cos_two_mul]",
+      "tactics": [
+        "intros",
+        "simp [Real.sin_two_mul, Real.cos_two_mul]"
+      ],
+      "domain": "trigonometry",
+      "applicable_features": {
+        "has_forall": 0.999992847442627,
+        "has_exists": 0.0,
+        "has_implication": 0.7500000000293809,
+        "has_inequality": 0.25,
+        "has_equality": 0.7500457912100842,
+        "has_power": 0.7500000020982043,
+        "has_sqrt": 1.1591269220898192e-69,
+        "has_fraction": 0.2500000009740119,
+        "has_trig": 0.7500534206046154,
+        "statement_length": 295.00000012404314,
+        "num_variables": 7.2586684260927425,
+        "domain_code": 1.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.00095367431640625,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "geometry::intros,nlinarith": {
+      "pattern_id": "geometry::intros,nlinarith",
+      "tactics": [
+        "intros",
+        "nlinarith"
+      ],
+      "domain": "geometry",
+      "applicable_features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.5,
+        "has_inequality": 0.5,
+        "has_equality": 0.5,
+        "has_power": 0.5,
+        "has_sqrt": 2.898193151280066e-70,
+        "has_fraction": 0.5,
+        "has_trig": 0.0,
+        "statement_length": 335.0,
+        "num_variables": 17.500001906883007,
+        "domain_code": 2.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.0007152557373046875,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "algebra::intros,nlinarith": {
+      "pattern_id": "algebra::intros,nlinarith",
+      "tactics": [
+        "intros",
+        "nlinarith"
+      ],
+      "domain": "algebra",
+      "applicable_features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.5038895905017782,
+        "has_inequality": 0.5273423492908478,
+        "has_equality": 1.4552201751458453e-09,
+        "has_power": 1.9103288650512695e-05,
+        "has_sqrt": 9.623777330636881e-10,
+        "has_fraction": 3.843742198496172e-06,
+        "has_trig": 0.0,
+        "statement_length": 74.00016502190938,
+        "num_variables": 4.452533434852552,
+        "domain_code": 0.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.00095367431640625,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "geometry::intros,linarith": {
+      "pattern_id": "geometry::intros,linarith",
+      "tactics": [
+        "intros",
+        "linarith"
+      ],
+      "domain": "geometry",
+      "applicable_features": {
+        "has_forall": 0.9999999925494194,
+        "has_exists": 0.0,
+        "has_implication": 0.5000000017494951,
+        "has_inequality": 0.5000000017494951,
+        "has_equality": 0.5000000003644307,
+        "has_power": 0.5000000018626453,
+        "has_sqrt": 0.5000000037252903,
+        "has_fraction": 1.3642509448137542e-12,
+        "has_trig": 1.0853314206470105e-165,
+        "statement_length": 165.00000000247493,
+        "num_variables": 7.003671876999546,
+        "domain_code": 2.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.00095367431640625,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "mixed::intros,nlinarith": {
+      "pattern_id": "mixed::intros,nlinarith",
+      "tactics": [
+        "intros",
+        "nlinarith"
+      ],
+      "domain": "mixed",
+      "applicable_features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 1.0,
+        "has_inequality": 1.0,
+        "has_equality": 1.0,
+        "has_power": 1.0,
+        "has_sqrt": 0.25,
+        "has_fraction": 0.5,
+        "has_trig": 0.0,
+        "statement_length": 565.0,
+        "num_variables": 47.75,
+        "domain_code": 3.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.0016689300537109375,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "mixed::intros,linarith": {
+      "pattern_id": "mixed::intros,linarith",
+      "tactics": [
+        "intros",
+        "linarith"
+      ],
+      "domain": "mixed",
+      "applicable_features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.0,
+        "has_inequality": 0.0,
+        "has_equality": 0.0,
+        "has_power": 0.0,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.0,
+        "has_trig": 0.0,
+        "statement_length": 59.0,
+        "num_variables": 2.0,
+        "domain_code": 3.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.00095367431640625,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "combinatorics::intros,linarith": {
+      "pattern_id": "combinatorics::intros,linarith",
+      "tactics": [
+        "intros",
+        "linarith"
+      ],
+      "domain": "combinatorics",
+      "applicable_features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.0,
+        "has_inequality": 0.0078125,
+        "has_equality": 0.9921875,
+        "has_power": 0.2109375,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.1875,
+        "has_trig": 0.0,
+        "statement_length": 43.640625,
+        "num_variables": 1.5,
+        "domain_code": 3.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.00095367431640625,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "probability::intros,linarith": {
+      "pattern_id": "probability::intros,linarith",
+      "tactics": [
+        "intros",
+        "linarith"
+      ],
+      "domain": "probability",
+      "applicable_features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.5,
+        "has_inequality": 0.2578125,
+        "has_equality": 0.578125,
+        "has_power": 0.0,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.3984375,
+        "has_trig": 0.0,
+        "statement_length": 46.03125,
+        "num_variables": 1.921875,
+        "domain_code": 3.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.0,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "linear_algebra::intros,nlinarith": {
+      "pattern_id": "linear_algebra::intros,nlinarith",
+      "tactics": [
+        "intros",
+        "nlinarith"
+      ],
+      "domain": "linear_algebra",
+      "applicable_features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.40625,
+        "has_inequality": 0.15625,
+        "has_equality": 0.96875,
+        "has_power": 0.28125,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.28125,
+        "has_trig": 0.0,
+        "statement_length": 68.875,
+        "num_variables": 2.0625,
+        "domain_code": 3.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.0007152557373046875,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "probability::intros,nlinarith": {
+      "pattern_id": "probability::intros,nlinarith",
+      "tactics": [
+        "intros",
+        "nlinarith"
+      ],
+      "domain": "probability",
+      "applicable_features": {
+        "has_forall": 0.5,
+        "has_exists": 0.0,
+        "has_implication": 0.21875,
+        "has_inequality": 0.046875,
+        "has_equality": 0.953125,
+        "has_power": 0.0,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.015625,
+        "has_trig": 0.0,
+        "statement_length": 32.125,
+        "num_variables": 0.828125,
+        "domain_code": 3.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.00095367431640625,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "linear_algebra::intros,linarith": {
+      "pattern_id": "linear_algebra::intros,linarith",
+      "tactics": [
+        "intros",
+        "linarith"
+      ],
+      "domain": "linear_algebra",
+      "applicable_features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0625,
+        "has_implication": 0.0625,
+        "has_inequality": 0.0,
+        "has_equality": 1.0,
+        "has_power": 0.8125,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.0,
+        "has_trig": 0.0,
+        "statement_length": 38.75,
+        "num_variables": 0.0625,
+        "domain_code": 3.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.00095367431640625,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "combinatorics::intros,nlinarith": {
+      "pattern_id": "combinatorics::intros,nlinarith",
+      "tactics": [
+        "intros",
+        "nlinarith"
+      ],
+      "domain": "combinatorics",
+      "applicable_features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.21875,
+        "has_inequality": 0.46875,
+        "has_equality": 0.71875,
+        "has_power": 0.78125,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.625,
+        "has_trig": 0.0,
+        "statement_length": 62.21875,
+        "num_variables": 6.59375,
+        "domain_code": 3.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.00095367431640625,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "solid_geometry::intros,linarith": {
+      "pattern_id": "solid_geometry::intros,linarith",
+      "tactics": [
+        "intros",
+        "linarith"
+      ],
+      "domain": "solid_geometry",
+      "applicable_features": {
+        "has_forall": 1.0,
+        "has_exists": 0.5234375,
+        "has_implication": 0.8515625,
+        "has_inequality": 0.28125,
+        "has_equality": 0.484375,
+        "has_power": 0.125,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.375,
+        "has_trig": 0.0,
+        "statement_length": 73.2421875,
+        "num_variables": 3.015625,
+        "domain_code": 3.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.0011920928955078125,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "analytic_geometry::intros,linarith": {
+      "pattern_id": "analytic_geometry::intros,linarith",
+      "tactics": [
+        "intros",
+        "linarith"
+      ],
+      "domain": "analytic_geometry",
+      "applicable_features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.625,
+        "has_inequality": 0.5625,
+        "has_equality": 1.0,
+        "has_power": 0.0,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.625,
+        "has_trig": 0.0,
+        "statement_length": 51.375,
+        "num_variables": 2.375,
+        "domain_code": 3.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.00095367431640625,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "calculus::intros,linarith": {
+      "pattern_id": "calculus::intros,linarith",
+      "tactics": [
+        "intros",
+        "linarith"
+      ],
+      "domain": "calculus",
+      "applicable_features": {
+        "has_forall": 1.0,
+        "has_exists": 0.03125,
+        "has_implication": 0.625,
+        "has_inequality": 0.53125,
+        "has_equality": 1.0,
+        "has_power": 0.875,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.78125,
+        "has_trig": 0.0,
+        "statement_length": 33.375,
+        "num_variables": 6.3125,
+        "domain_code": 3.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.00095367431640625,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "solid_geometry::intros,nlinarith": {
+      "pattern_id": "solid_geometry::intros,nlinarith",
+      "tactics": [
+        "intros",
+        "nlinarith"
+      ],
+      "domain": "solid_geometry",
+      "applicable_features": {
+        "has_forall": 1.0,
+        "has_exists": 0.078125,
+        "has_implication": 0.828125,
+        "has_inequality": 0.0,
+        "has_equality": 0.9375,
+        "has_power": 0.5,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.03125,
+        "has_trig": 0.0,
+        "statement_length": 102.765625,
+        "num_variables": 2.265625,
+        "domain_code": 3.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.0016689300537109375,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "analytic_geometry::intros,nlinarith": {
+      "pattern_id": "analytic_geometry::intros,nlinarith",
+      "tactics": [
+        "intros",
+        "nlinarith"
+      ],
+      "domain": "analytic_geometry",
+      "applicable_features": {
+        "has_forall": 1.0,
+        "has_exists": 0.0,
+        "has_implication": 0.5,
+        "has_inequality": 0.5,
+        "has_equality": 1.0,
+        "has_power": 0.0,
+        "has_sqrt": 0.0,
+        "has_fraction": 1.0,
+        "has_trig": 0.0,
+        "statement_length": 80.5,
+        "num_variables": 3.5,
+        "domain_code": 3.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 0.0019073486328125,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    },
+    "algebra::simp,ring": {
+      "pattern_id": "algebra::simp,ring",
+      "tactics": [
+        "simp",
+        "ring"
+      ],
+      "domain": "algebra",
+      "applicable_features": {
+        "has_forall": 0.0,
+        "has_exists": 0.0,
+        "has_implication": 0.0,
+        "has_inequality": 0.0,
+        "has_equality": 1.0,
+        "has_power": 0.0,
+        "has_sqrt": 0.0,
+        "has_fraction": 0.0,
+        "has_trig": 0.0,
+        "statement_length": 33.0,
+        "num_variables": 0.0,
+        "domain_code": 0.0
+      },
+      "success_count": 1,
+      "fail_count": 0,
+      "avg_time_ms": 100.0,
+      "success_rate": 1.0,
+      "confidence": 0.20654329147389294
+    }
+  },
+  "domain_stats": {
+    "number_theory": {
+      "total_proofs": 2,
+      "successful_proofs": 2,
+      "avg_steps": 2.0,
+      "avg_time_ms": 0.0008344650268554688,
+      "common_tactics": {
+        "intros": 2,
+        "nlinarith": 1,
+        "linarith": 1
+      },
+      "avg_difficulty": 0
+    },
+    "cross_domain": {
+      "total_proofs": 2,
+      "successful_proofs": 2,
+      "avg_steps": 2.0,
+      "avg_time_ms": 0.00095367431640625,
+      "common_tactics": {
+        "intros": 2,
+        "linarith": 1,
+        "nlinarith": 1
+      },
+      "avg_difficulty": 0
+    },
+    "calculus": {
+      "total_proofs": 2,
+      "successful_proofs": 2,
+      "avg_steps": 2.0,
+      "avg_time_ms": 0.00095367431640625,
+      "common_tactics": {
+        "intros": 2,
+        "nlinarith": 1,
+        "linarith": 1
+      },
+      "avg_difficulty": 0
+    },
+    "algebra": {
+      "total_proofs": 4,
+      "successful_proofs": 4,
+      "avg_steps": 2.0,
+      "avg_time_ms": 25.000476837158203,
+      "common_tactics": {
+        "intros": 3,
+        "nlinarith [sq_nonneg _]": 1,
+        "ring": 2,
+        "nlinarith": 1,
+        "simp": 1
+      },
+      "avg_difficulty": 0
+    },
+    "trigonometry": {
+      "total_proofs": 3,
+      "successful_proofs": 3,
+      "avg_steps": 2.0,
+      "avg_time_ms": 0.00095367431640625,
+      "common_tactics": {
+        "intros": 3,
+        "simp [Real.sin_sq_add_cos_sq]": 1,
+        "ring": 1,
+        "simp [Real.sin_two_mul, Real.cos_two_mul]": 1
+      },
+      "avg_difficulty": 0
+    },
+    "geometry": {
+      "total_proofs": 2,
+      "successful_proofs": 2,
+      "avg_steps": 2.0,
+      "avg_time_ms": 0.0008344650268554688,
+      "common_tactics": {
+        "intros": 2,
+        "nlinarith": 1,
+        "linarith": 1
+      },
+      "avg_difficulty": 0
+    },
+    "mixed": {
+      "total_proofs": 2,
+      "successful_proofs": 2,
+      "avg_steps": 2.0,
+      "avg_time_ms": 0.0013113021850585938,
+      "common_tactics": {
+        "intros": 2,
+        "nlinarith": 1,
+        "linarith": 1
+      },
+      "avg_difficulty": 0
+    },
+    "combinatorics": {
+      "total_proofs": 2,
+      "successful_proofs": 2,
+      "avg_steps": 2.0,
+      "avg_time_ms": 0.00095367431640625,
+      "common_tactics": {
+        "intros": 2,
+        "linarith": 1,
+        "nlinarith": 1
+      },
+      "avg_difficulty": 0
+    },
+    "probability": {
+      "total_proofs": 2,
+      "successful_proofs": 2,
+      "avg_steps": 2.0,
+      "avg_time_ms": 0.000476837158203125,
+      "common_tactics": {
+        "intros": 2,
+        "linarith": 1,
+        "nlinarith": 1
+      },
+      "avg_difficulty": 0
+    },
+    "linear_algebra": {
+      "total_proofs": 2,
+      "successful_proofs": 2,
+      "avg_steps": 2.0,
+      "avg_time_ms": 0.0008344650268554688,
+      "common_tactics": {
+        "intros": 2,
+        "nlinarith": 1,
+        "linarith": 1
+      },
+      "avg_difficulty": 0
+    },
+    "solid_geometry": {
+      "total_proofs": 2,
+      "successful_proofs": 2,
+      "avg_steps": 2.0,
+      "avg_time_ms": 0.001430511474609375,
+      "common_tactics": {
+        "intros": 2,
+        "linarith": 1,
+        "nlinarith": 1
+      },
+      "avg_difficulty": 0
+    },
+    "analytic_geometry": {
+      "total_proofs": 2,
+      "successful_proofs": 2,
+      "avg_steps": 2.0,
+      "avg_time_ms": 0.001430511474609375,
+      "common_tactics": {
+        "intros": 2,
+        "linarith": 1,
+        "nlinarith": 1
+      },
+      "avg_difficulty": 0
+    }
+  },
+  "tactic_cooccurrence": {
+    "intros": {
+      "nlinarith": 11,
+      "linarith": 10,
+      "nlinarith [sq_nonneg _]": 1,
+      "ring": 2,
+      "simp [Real.sin_sq_add_cos_sq]": 1,
+      "simp [Real.sin_two_mul, Real.cos_two_mul]": 1
+    },
+    "nlinarith": {
+      "intros": 11
+    },
+    "linarith": {
+      "intros": 10
+    },
+    "nlinarith [sq_nonneg _]": {
+      "intros": 1
+    },
+    "ring": {
+      "intros": 2,
+      "simp": 1
+    },
+    "simp [Real.sin_sq_add_cos_sq]": {
+      "intros": 1
+    },
+    "simp [Real.sin_two_mul, Real.cos_two_mul]": {
+      "intros": 1
+    },
+    "simp": {
+      "ring": 1
+    }
+  },
+  "metadata": {
+    "version": "0.9.0",
+    "last_updated": "2026-02-03T11:31:25.350176"
+  }
+}

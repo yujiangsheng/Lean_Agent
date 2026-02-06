@@ -1,0 +1,1122 @@
+{
+  "version": "2.0.0",
+  "knowledge": [
+    {
+      "id": "alg_ax_add_comm",
+      "statement": "∀ a b : ℝ, a + b = b + a",
+      "statement_cn": "加法交换律",
+      "domain": "algebra",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 1,
+      "symbols": [
+        "=",
+        "+"
+      ],
+      "tactics": [
+        "ring"
+      ],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "alg_ax_add_assoc",
+      "statement": "∀ a b c : ℝ, (a + b) + c = a + (b + c)",
+      "statement_cn": "加法结合律",
+      "domain": "algebra",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 1,
+      "symbols": [
+        "=",
+        "+"
+      ],
+      "tactics": [
+        "ring"
+      ],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "alg_ax_mul_comm",
+      "statement": "∀ a b : ℝ, a * b = b * a",
+      "statement_cn": "乘法交换律",
+      "domain": "algebra",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 1,
+      "symbols": [
+        "*",
+        "="
+      ],
+      "tactics": [
+        "ring"
+      ],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "alg_ax_mul_assoc",
+      "statement": "∀ a b c : ℝ, (a * b) * c = a * (b * c)",
+      "statement_cn": "乘法结合律",
+      "domain": "algebra",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 1,
+      "symbols": [
+        "*",
+        "="
+      ],
+      "tactics": [
+        "ring"
+      ],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "alg_ax_distrib",
+      "statement": "∀ a b c : ℝ, a * (b + c) = a * b + a * c",
+      "statement_cn": "分配律",
+      "domain": "algebra",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 1,
+      "symbols": [
+        "*",
+        "=",
+        "+"
+      ],
+      "tactics": [
+        "ring"
+      ],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "alg_ax_sq_nonneg",
+      "statement": "∀ a : ℝ, a² ≥ 0",
+      "statement_cn": "平方非负性",
+      "domain": "algebra",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 1,
+      "symbols": [
+        "≥",
+        "^"
+      ],
+      "tactics": [
+        "nlinarith",
+        "positivity"
+      ],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "alg_ax_zero_identity",
+      "statement": "∀ a : ℝ, a + 0 = a",
+      "statement_cn": "加法单位元",
+      "domain": "algebra",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 1,
+      "symbols": [
+        "=",
+        "+"
+      ],
+      "tactics": [
+        "ring",
+        "simp"
+      ],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "alg_ax_one_identity",
+      "statement": "∀ a : ℝ, a * 1 = a",
+      "statement_cn": "乘法单位元",
+      "domain": "algebra",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 1,
+      "symbols": [
+        "*",
+        "="
+      ],
+      "tactics": [
+        "ring",
+        "simp"
+      ],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "trig_ax_pythagorean",
+      "statement": "∀ θ : ℝ, sin²θ + cos²θ = 1",
+      "statement_cn": "毕达哥拉斯恒等式",
+      "domain": "trigonometry",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 1,
+      "symbols": [
+        "^",
+        "+",
+        "cos",
+        "=",
+        "sin"
+      ],
+      "tactics": [
+        "exact Real.sin_sq_add_cos_sq"
+      ],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "trig_def_tan",
+      "statement": "∀ θ : ℝ, cos θ ≠ 0 → tan θ = sin θ / cos θ",
+      "statement_cn": "正切定义",
+      "domain": "trigonometry",
+      "level": "definition",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 1,
+      "symbols": [
+        "tan",
+        "/",
+        "cos",
+        "=",
+        "sin"
+      ],
+      "tactics": [
+        "exact Real.tan_eq_sin_div_cos"
+      ],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "geo_ax_triangle",
+      "statement": "∀ a b c : ℝ, a > 0 → b > 0 → c > 0 → a + b > c → valid_triangle a b c",
+      "statement_cn": "三角形存在条件",
+      "domain": "geometry",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 1,
+      "symbols": [
+        "+",
+        ">"
+      ],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "geo_ax_point_line",
+      "statement": "∀ P Q : Point, P ≠ Q → ∃! l : Line, P ∈ l ∧ Q ∈ l",
+      "statement_cn": "两点确定一直线",
+      "domain": "geometry",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 1,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "nt_ax_div",
+      "statement": "∀ a b : ℤ, b ≠ 0 → ∃ q r : ℤ, a = b*q + r ∧ 0 ≤ r < |b|",
+      "statement_cn": "带余除法",
+      "domain": "number_theory",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "nt_ax_gcd",
+      "statement": "∀ a b : ℤ, ∃ d : ℤ, d = gcd(a, b) ∧ d | a ∧ d | b",
+      "statement_cn": "最大公约数存在性",
+      "domain": "number_theory",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "nt_def_prime",
+      "statement": "∀ p : ℕ, prime(p) ↔ p > 1 ∧ ∀ d : ℕ, d | p → d = 1 ∨ d = p",
+      "statement_cn": "素数定义",
+      "domain": "number_theory",
+      "level": "definition",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "sg_ax_plane",
+      "statement": "∀ A B C : Point, ¬collinear(A,B,C) → ∃! π : Plane, A ∈ π ∧ B ∈ π ∧ C ∈ π",
+      "statement_cn": "三点确定一平面",
+      "domain": "solid_geometry",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "sg_ax_parallel",
+      "statement": "∀ l m : Line, l ∥ m ↔ l ∩ m = ∅ ∧ coplanar(l, m)",
+      "statement_cn": "平行定义",
+      "domain": "solid_geometry",
+      "level": "definition",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "ag_ax_dist",
+      "statement": "∀ P Q : ℝ², d(P, Q) = √((x₂-x₁)² + (y₂-y₁)²)",
+      "statement_cn": "两点距离公式",
+      "domain": "analytic_geometry",
+      "level": "definition",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "ag_ax_slope",
+      "statement": "∀ P Q : ℝ², x₁ ≠ x₂ → slope(P, Q) = (y₂-y₁)/(x₂-x₁)",
+      "statement_cn": "斜率定义",
+      "domain": "analytic_geometry",
+      "level": "definition",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "comb_ax_add",
+      "statement": "∀ A B : Set, A ∩ B = ∅ → |A ∪ B| = |A| + |B|",
+      "statement_cn": "加法原理",
+      "domain": "combinatorics",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 1,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "comb_ax_mult",
+      "statement": "∀ A B : Set, |A × B| = |A| * |B|",
+      "statement_cn": "乘法原理",
+      "domain": "combinatorics",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 1,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "prob_ax_nonneg",
+      "statement": "∀ A : Event, P(A) ≥ 0",
+      "statement_cn": "非负性",
+      "domain": "probability",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 1,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "prob_ax_total",
+      "statement": "P(Ω) = 1",
+      "statement_cn": "规范性",
+      "domain": "probability",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 1,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "prob_ax_add",
+      "statement": "∀ A B : Event, A ∩ B = ∅ → P(A ∪ B) = P(A) + P(B)",
+      "statement_cn": "可加性",
+      "domain": "probability",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 1,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "calc_def_limit",
+      "statement": "lim_{x→a} f(x) = L ↔ ∀ε>0, ∃δ>0, |x-a|<δ → |f(x)-L|<ε",
+      "statement_cn": "极限定义（ε-δ）",
+      "domain": "calculus",
+      "level": "definition",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 3,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "calc_def_deriv",
+      "statement": "f'(x) = lim_{h→0} (f(x+h)-f(x))/h",
+      "statement_cn": "导数定义",
+      "domain": "calculus",
+      "level": "definition",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 3,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "calc_def_integral",
+      "statement": "∫_a^b f(x)dx = lim_{n→∞} ∑_{i=1}^{n} f(x_i)*Δx",
+      "statement_cn": "定积分定义（黎曼和）",
+      "domain": "calculus",
+      "level": "definition",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 3,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "la_ax_vec_add",
+      "statement": "∀ u v : V, u + v ∈ V",
+      "statement_cn": "向量加法封闭",
+      "domain": "linear_algebra",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "la_ax_scalar",
+      "statement": "∀ c : F, v : V, c*v ∈ V",
+      "statement_cn": "数乘封闭",
+      "domain": "linear_algebra",
+      "level": "axiom",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "la_def_det",
+      "statement": "det(A) = ∑_{σ∈S_n} sgn(σ)*∏_{i=1}^{n} a_{i,σ(i)}",
+      "statement_cn": "行列式定义",
+      "domain": "linear_algebra",
+      "level": "definition",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 3,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "alg_thm_sq_add",
+      "statement": "∀ a b : ℝ, (a + b)² = a² + 2ab + b²",
+      "statement_cn": "完全平方公式（和）",
+      "domain": "algebra",
+      "level": "core",
+      "dependencies": [
+        "alg_ax_distrib"
+      ],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [
+        "ring"
+      ],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "alg_thm_sq_sub",
+      "statement": "∀ a b : ℝ, (a - b)² = a² - 2ab + b²",
+      "statement_cn": "完全平方公式（差）",
+      "domain": "algebra",
+      "level": "core",
+      "dependencies": [
+        "alg_ax_distrib"
+      ],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [
+        "ring"
+      ],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "alg_thm_sq_diff",
+      "statement": "∀ a b : ℝ, (a + b)(a - b) = a² - b²",
+      "statement_cn": "平方差公式",
+      "domain": "algebra",
+      "level": "core",
+      "dependencies": [
+        "alg_ax_distrib"
+      ],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [
+        "ring"
+      ],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "alg_thm_cube_sum",
+      "statement": "∀ a b : ℝ, a³ + b³ = (a + b)(a² - ab + b²)",
+      "statement_cn": "立方和公式",
+      "domain": "algebra",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [
+        "ring"
+      ],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "alg_thm_cube_diff",
+      "statement": "∀ a b : ℝ, a³ - b³ = (a - b)(a² + ab + b²)",
+      "statement_cn": "立方差公式",
+      "domain": "algebra",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [
+        "ring"
+      ],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "alg_thm_am_gm",
+      "statement": "∀ a b : ℝ, a ≥ 0 → b ≥ 0 → (a + b)/2 ≥ √(ab)",
+      "statement_cn": "AM-GM 不等式（两数）",
+      "domain": "algebra",
+      "level": "core",
+      "dependencies": [
+        "alg_ax_sq_nonneg"
+      ],
+      "derived_from": "",
+      "difficulty": 3,
+      "symbols": [],
+      "tactics": [
+        "nlinarith",
+        "positivity"
+      ],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "alg_thm_cauchy",
+      "statement": "∀ a b c d : ℝ, (ac + bd)² ≤ (a² + b²)(c² + d²)",
+      "statement_cn": "柯西-施瓦茨不等式（二维）",
+      "domain": "algebra",
+      "level": "core",
+      "dependencies": [
+        "alg_ax_sq_nonneg"
+      ],
+      "derived_from": "",
+      "difficulty": 4,
+      "symbols": [],
+      "tactics": [
+        "nlinarith",
+        "polyrith"
+      ],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "trig_thm_sin_add",
+      "statement": "∀ α β : ℝ, sin(α + β) = sin α cos β + cos α sin β",
+      "statement_cn": "正弦加法定理",
+      "domain": "trigonometry",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [
+        "exact Real.sin_add"
+      ],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "trig_thm_cos_add",
+      "statement": "∀ α β : ℝ, cos(α + β) = cos α cos β - sin α sin β",
+      "statement_cn": "余弦加法定理",
+      "domain": "trigonometry",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [
+        "exact Real.cos_add"
+      ],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "trig_thm_sin_2x",
+      "statement": "∀ θ : ℝ, sin(2θ) = 2 sin θ cos θ",
+      "statement_cn": "正弦倍角公式",
+      "domain": "trigonometry",
+      "level": "core",
+      "dependencies": [
+        "trig_thm_sin_add"
+      ],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "trig_thm_cos_2x",
+      "statement": "∀ θ : ℝ, cos(2θ) = cos²θ - sin²θ",
+      "statement_cn": "余弦倍角公式",
+      "domain": "trigonometry",
+      "level": "core",
+      "dependencies": [
+        "trig_thm_cos_add"
+      ],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "geo_thm_pythagoras",
+      "statement": "∀ a b c : ℝ, right_triangle(a,b,c) → a² + b² = c²",
+      "statement_cn": "勾股定理",
+      "domain": "geometry",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "geo_thm_angle_sum",
+      "statement": "∀ △ABC, ∠A + ∠B + ∠C = π",
+      "statement_cn": "三角形内角和",
+      "domain": "geometry",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "nt_thm_euclid",
+      "statement": "gcd(a, b) = gcd(b, a mod b)",
+      "statement_cn": "欧几里得算法",
+      "domain": "number_theory",
+      "level": "core",
+      "dependencies": [
+        "nt_ax_div"
+      ],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "nt_thm_bezout",
+      "statement": "∀ a b : ℤ, ∃ x y : ℤ, ax + by = gcd(a, b)",
+      "statement_cn": "裴蜀定理",
+      "domain": "number_theory",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 3,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "nt_thm_fta",
+      "statement": "∀ n > 1, n 可唯一分解为素数乘积",
+      "statement_cn": "算术基本定理",
+      "domain": "number_theory",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 4,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "nt_thm_fermat_little",
+      "statement": "∀ a p : ℕ, prime(p) → a^p ≡ a (mod p)",
+      "statement_cn": "费马小定理",
+      "domain": "number_theory",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 3,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "nt_thm_euler",
+      "statement": "∀ a n : ℕ, gcd(a,n) = 1 → a^φ(n) ≡ 1 (mod n)",
+      "statement_cn": "欧拉定理",
+      "domain": "number_theory",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 3,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "nt_thm_crt",
+      "statement": "x ≡ a₁ (mod m₁), x ≡ a₂ (mod m₂), gcd(m₁,m₂)=1 有唯一解",
+      "statement_cn": "中国剩余定理",
+      "domain": "number_theory",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 4,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "comb_thm_perm",
+      "statement": "P(n, k) = n!/(n-k)!",
+      "statement_cn": "排列数公式",
+      "domain": "combinatorics",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "comb_thm_comb",
+      "statement": "C(n, k) = n!/(k!(n-k)!)",
+      "statement_cn": "组合数公式",
+      "domain": "combinatorics",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "comb_thm_binomial",
+      "statement": "(x+y)^n = ∑_{k=0}^{n} C(n,k) x^k y^{n-k}",
+      "statement_cn": "二项式定理",
+      "domain": "combinatorics",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 3,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "comb_thm_pascal",
+      "statement": "C(n+1, k+1) = C(n, k) + C(n, k+1)",
+      "statement_cn": "帕斯卡恒等式",
+      "domain": "combinatorics",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "prob_thm_complement",
+      "statement": "P(Ā) = 1 - P(A)",
+      "statement_cn": "补事件概率",
+      "domain": "probability",
+      "level": "core",
+      "dependencies": [
+        "prob_ax_total"
+      ],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "prob_thm_bayes",
+      "statement": "P(A|B) = P(B|A)P(A)/P(B)",
+      "statement_cn": "贝叶斯定理",
+      "domain": "probability",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 3,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "prob_thm_total",
+      "statement": "P(A) = ∑ P(A|B_i)P(B_i)",
+      "statement_cn": "全概率公式",
+      "domain": "probability",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 3,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "calc_thm_chain",
+      "statement": "(f∘g)' = (f'∘g) · g'",
+      "statement_cn": "链式法则",
+      "domain": "calculus",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 3,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "calc_thm_mvt",
+      "statement": "∃ c ∈ (a,b), f'(c) = (f(b)-f(a))/(b-a)",
+      "statement_cn": "中值定理",
+      "domain": "calculus",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 3,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "calc_thm_ftc",
+      "statement": "∫_a^b f'(x)dx = f(b) - f(a)",
+      "statement_cn": "微积分基本定理",
+      "domain": "calculus",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 3,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "calc_thm_taylor",
+      "statement": "f(x) = ∑_{n=0}^{∞} f^{(n)}(a)/n! · (x-a)^n",
+      "statement_cn": "泰勒展开",
+      "domain": "calculus",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 4,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "la_thm_det_mult",
+      "statement": "det(AB) = det(A) · det(B)",
+      "statement_cn": "行列式乘法",
+      "domain": "linear_algebra",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 3,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "la_thm_rank_nullity",
+      "statement": "dim(V) = rank(T) + nullity(T)",
+      "statement_cn": "秩-零化度定理",
+      "domain": "linear_algebra",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 3,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "la_thm_eigenvalue",
+      "statement": "det(A - λI) = 0 定义特征值",
+      "statement_cn": "特征值定义",
+      "domain": "linear_algebra",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "la_thm_cayley_hamilton",
+      "statement": "p(A) = 0, where p(λ) = det(A - λI)",
+      "statement_cn": "凯莱-哈密顿定理",
+      "domain": "linear_algebra",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 4,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "cross_euler_formula",
+      "statement": "e^{iθ} = cos θ + i sin θ",
+      "statement_cn": "欧拉公式",
+      "domain": "cross_domain",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 3,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [
+        "trigonometry",
+        "calculus",
+        "algebra"
+      ],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "cross_rotation_matrix",
+      "statement": "R(θ) = [[cos θ, -sin θ], [sin θ, cos θ]]",
+      "statement_cn": "旋转矩阵",
+      "domain": "cross_domain",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 2,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [
+        "linear_algebra",
+        "geometry",
+        "trigonometry"
+      ],
+      "verified": true,
+      "confidence": 1.0
+    },
+    {
+      "id": "cross_gaussian_integral",
+      "statement": "∫_{-∞}^{∞} e^{-x²/2} dx = √(2π)",
+      "statement_cn": "高斯积分",
+      "domain": "cross_domain",
+      "level": "core",
+      "dependencies": [],
+      "derived_from": "",
+      "difficulty": 4,
+      "symbols": [],
+      "tactics": [],
+      "related_domains": [
+        "calculus",
+        "probability"
+      ],
+      "verified": true,
+      "confidence": 1.0
+    }
+  ]
+}
