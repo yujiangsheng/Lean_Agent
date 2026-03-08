@@ -1,26 +1,34 @@
 #!/usr/bin/env python3
 """
 ═══════════════════════════════════════════════════════════════════════════════
-                    经验学习系统
+                经验学习系统 (Experience Learning System)
 ═══════════════════════════════════════════════════════════════════════════════
 
 从成功的证明中学习模式，用于指导未来的猜想生成和证明策略选择。
+Learns patterns from successful proofs to guide future conjecture
+generation and proof strategy selection.
 
-学习内容：
-    1. 成功的证明模式（哪些策略组合有效）
-    2. 定理组合规律（哪些定理经常一起使用）
-    3. 领域特征（不同领域的证明风格）
-    4. 难度预测（根据特征预测证明难度）
+学习内容 (Learning Targets):
+    1. 证明模式 (Proof Patterns)    — 哪些策略组合有效
+    2. 定理组合 (Theorem Combos)    — 哪些定理经常一起使用
+    3. 领域特征 (Domain Features)   — 不同领域的证明风格
+    4. 难度预测 (Difficulty Predict) — 根据特征预测证明难度
 
-作者: Jiangsheng Yu
-版本: 2.1.0
+核心特性 (Key Features):
+    - 智能去重: 基于签名 + 相似度检测避免重复记录
+    - 经验合并: 将相似经验合并而非重复存储
+    - 周期清理: 自动清理低价值经验，保持库大小可控
+    - Wilson 置信区间: 使用统计学方法评估策略置信度
+
+作者 (Author): Jiangsheng Yu
+版本 (Version): 3.0.0
 """
 
 import json
 import re
 from pathlib import Path
 from dataclasses import dataclass, field, asdict
-from typing import List, Dict, Set, Optional, Tuple
+from typing import List, Dict, Tuple
 from datetime import datetime
 from collections import defaultdict, Counter
 import math
@@ -329,6 +337,9 @@ class ExperienceLearner:
         # 更新策略模式
         self._update_tactic_pattern(experience)
         
+        # 学习 tactic 链模式
+        self.learn_tactic_chains(experience)
+        
         # 更新共现统计
         self._update_cooccurrence(experience.tactics_used)
         
@@ -452,14 +463,6 @@ class ExperienceLearner:
         self._save()
         
         return removed_count
-        
-        # 更新共现统计
-        self._update_cooccurrence(experience.tactics_used)
-        
-        # 更新领域统计
-        self._update_domain_stats(experience)
-        
-        self._save()
     
     def _update_tactic_pattern(self, exp: ProofExperience):
         """更新策略模式"""
@@ -687,6 +690,130 @@ class ExperienceLearner:
         }
     
     # ========== 持久化 ==========
+    # ========== Tactic 链模式学习 ==========
+    
+    def extract_tactic_chains(self, tactics: List[str], max_chain_length: int = 4) -> List[List[str]]:
+        """
+        从一个成功的 tactic 序列中提取所有子链模式
+        
+        例如 ["intro", "simp", "ring", "omega"] 会提取出:
+        - 长度2: ["intro","simp"], ["simp","ring"], ["ring","omega"]
+        - 长度3: ["intro","simp","ring"], ["simp","ring","omega"]
+        - 长度4: ["intro","simp","ring","omega"]
+        """
+        chains = []
+        for length in range(2, min(max_chain_length + 1, len(tactics) + 1)):
+            for start in range(len(tactics) - length + 1):
+                chains.append(tactics[start:start + length])
+        return chains
+    
+    def learn_tactic_chains(self, experience: ProofExperience):
+        """
+        从一次成功证明中学习 tactic 链模式
+        
+        将各子链记录到 tactic_patterns 中（作为更精细的模式）
+        """
+        if not experience.success or len(experience.tactics_used) < 2:
+            return
+        
+        chains = self.extract_tactic_chains(experience.tactics_used)
+        for chain in chains:
+            pattern_key = f"{experience.domain}::chain::{'→'.join(chain)}"
+            
+            if pattern_key not in self.tactic_patterns:
+                self.tactic_patterns[pattern_key] = TacticPattern(
+                    pattern_id=pattern_key,
+                    tactics=chain,
+                    domain=experience.domain,
+                    applicable_features=experience.features.copy()
+                )
+            
+            pattern = self.tactic_patterns[pattern_key]
+            pattern.success_count += 1
+            n = pattern.success_count
+            pattern.avg_time_ms = ((n - 1) * pattern.avg_time_ms + experience.proof_time_ms) / n
+            
+            # 更新特征
+            for feat, val in experience.features.items():
+                if feat in pattern.applicable_features:
+                    pattern.applicable_features[feat] = (pattern.applicable_features[feat] + val) / 2
+                else:
+                    pattern.applicable_features[feat] = val
+    
+    def recommend_tactic_chains(
+        self, 
+        domain: str, 
+        features: Dict[str, float],
+        max_chain_length: int = 5,
+        top_k: int = 5
+    ) -> List[Tuple[List[str], float]]:
+        """
+        推荐完整的 tactic 链模式
+        
+        与 recommend_tactics 不同，这里返回的是有序的多步 tactic 链，
+        反映了"先做A，再做B，再做C"的证明模式。
+        
+        参数:
+            domain: 领域
+            features: 猜想特征
+            max_chain_length: 最大链长
+            top_k: 返回前 k 个推荐
+        
+        返回:
+            [(tactic链, 综合得分), ...]
+        """
+        candidates = []
+        
+        for pattern_id, pattern in self.tactic_patterns.items():
+            # 只匹配链模式
+            if "::chain::" not in pattern_id:
+                continue
+            if pattern.domain != domain:
+                continue
+            if len(pattern.tactics) > max_chain_length:
+                continue
+            
+            similarity = self._feature_similarity(features, pattern.applicable_features)
+            
+            # 综合得分: 特征相似度 * 置信度 * 链长度奖励
+            chain_length_bonus = min(len(pattern.tactics) / 3.0, 1.0)  # 鼓励更长的成功链
+            score = similarity * pattern.confidence * (0.7 + 0.3 * chain_length_bonus)
+            
+            candidates.append((pattern.tactics, score))
+        
+        candidates.sort(key=lambda x: x[1], reverse=True)
+        return candidates[:top_k]
+    
+    def get_tactic_transition_probabilities(
+        self, 
+        current_tactic: str, 
+        domain: str
+    ) -> List[Tuple[str, float]]:
+        """
+        获取从当前 tactic 转移到下一个 tactic 的概率
+        
+        基于成功证明中的 tactic 链模式统计。
+        """
+        transitions: Dict[str, int] = defaultdict(int)
+        
+        for pattern_id, pattern in self.tactic_patterns.items():
+            if "::chain::" not in pattern_id:
+                continue
+            if pattern.domain != domain:
+                continue
+            
+            for i, t in enumerate(pattern.tactics[:-1]):
+                if t == current_tactic:
+                    next_t = pattern.tactics[i + 1]
+                    transitions[next_t] += pattern.success_count
+        
+        total = sum(transitions.values())
+        if total == 0:
+            return []
+        
+        probs = [(t, c / total) for t, c in transitions.items()]
+        probs.sort(key=lambda x: x[1], reverse=True)
+        return probs
     
     def _save(self):
         """保存到文件"""

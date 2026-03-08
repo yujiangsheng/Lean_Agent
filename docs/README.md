@@ -1,64 +1,35 @@
-# 📚 文档目录
+# 📚 文档目录 | Documentation Index
 
-> Lean Agent 项目文档
+> Gauss v3.0.0 项目文档
+>
+> Project documentation for Gauss v3.0.0
 
----
-
-## 📖 文档列表
-
-| 文档 | 说明 |
-|------|------|
-| [ARCHITECTURE.md](ARCHITECTURE.md) | 系统架构设计，核心组件详解 |
-| [KNOWLEDGE_SYSTEM.md](KNOWLEDGE_SYSTEM.md) | 知识系统详解，领域和层级说明 |
-| [API_REFERENCE.md](API_REFERENCE.md) | 完整 API 参考手册 |
+完整的安装与使用说明请参见 [项目 README](../README.md)。
+For installation and usage, see the [project README](../README.md).
 
 ---
 
-## 🚀 快速入门
+## 📖 文档列表 | Document List
 
-### 1. 安装
-
-```bash
-git clone https://github.com/your-repo/Lean_Agent.git
-cd Lean_Agent
-pip install -r requirements.txt
-```
-
-### 2. 运行
-
-```bash
-# 命令行
-python main.py learn --rounds 5
-
-# Python API
-from src import ContinuousLearningAgent
-agent = ContinuousLearningAgent()
-agent.run_learning_round()
-```
-
-### 3. 查看示例
-
-```bash
-python examples/01_basic_usage.py
-python examples/02_learning_agent.py
-python examples/03_knowledge_query.py
-python examples/04_reasoning_demo.py
-python examples/05_knowledge_graph.py
-```
+| 文档 | 说明 | Description |
+|------|------|-------------|
+| [ARCHITECTURE.md](ARCHITECTURE.md) | 系统架构设计 | System architecture design |
+| [KNOWLEDGE_SYSTEM.md](KNOWLEDGE_SYSTEM.md) | 知识系统详解 | Knowledge system details |
+| [API_REFERENCE.md](API_REFERENCE.md) | 完整 API 参考手册 | Complete API reference |
 
 ---
 
-## 📁 文档结构
+## 📁 文档结构 | Structure
 
 ```
 docs/
 ├── README.md              # 本文件（文档目录）
-├── ARCHITECTURE.md        # 系统架构
-├── KNOWLEDGE_SYSTEM.md    # 知识系统
-└── API_REFERENCE.md       # API 参考
+├── ARCHITECTURE.md        # 系统架构设计
+├── KNOWLEDGE_SYSTEM.md    # 知识系统详解
+└── API_REFERENCE.md       # API 参考手册
 ```
 
 ---
 
-**作者**: Jiangsheng Yu  
-**版本**: 2.1.0
+**作者 (Author)**: Jiangsheng Yu  
+**版本 (Version)**: 3.0.0

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gauss - 数学定理证明</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!-- ═══════════ 顶部栏 ═══════════ -->
+  <header class="top-bar">
+    <div class="logo">
+      <span class="logo-icon">∀</span>
+      <span class="logo-text">Gauss</span>
+      <span class="logo-sub">数学定理自动证明</span>
+    </div>
+    <div class="model-badge" id="modelBadge">qwen3-coder:30b</div>
+  </header>
+
+  <!-- ═══════════ 输入区 ═══════════ -->
+  <section class="input-section">
+    <div class="input-wrapper">
+      <textarea
+        id="theoremInput"
+        class="theorem-input"
+        placeholder="用自然语言输入待证明的数学命题"
+        rows="3"
+      ></textarea>
+      <div class="input-actions">
+        <button class="btn btn-primary" id="btnProve" onclick="startProve()">
+          <span class="btn-icon">⊢</span> 证明
+        </button>
+        <button class="btn btn-ghost" id="btnClear" onclick="clearAll()">
+          清空
+        </button>
+      </div>
+    </div>
+    <!-- 状态条 -->
+    <div class="status-bar" id="statusBar">
+      <span class="status-dot" id="statusDot"></span>
+      <span id="statusText">就绪</span>
+    </div>
+  </section>
+
+  <!-- ═══════════ 三面板 ═══════════ -->
+  <main class="panels">
+    <!-- 左面板: LLM 自然语言证明 -->
+    <div class="panel panel-llm">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="panel-icon">🧠</span>
+          LLM 自然语言证明
+        </div>
+        <div class="panel-subtitle" id="llmSubtitle">等待输入...</div>
+      </div>
+      <div class="panel-body" id="llmPanel">
+        <div class="empty-state">
+          <div class="empty-icon">🧠</div>
+          <div class="empty-text">LLM 自然语言证明将在此显示</div>
+          <div class="empty-hint">LLM 给出完整的数学证明思路</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 分割线 1 -->
+    <div class="panel-divider" id="panelDivider1"></div>
+
+    <!-- 中间面板: 结构化证明计划 -->
+    <div class="panel panel-plan">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="panel-icon">📋</span>
+          结构化证明计划
+        </div>
+        <div class="panel-subtitle" id="planSubtitle">等待输入...</div>
+      </div>
+      <div class="panel-body" id="planPanel">
+        <div class="empty-state">
+          <div class="empty-icon">📋</div>
+          <div class="empty-text">结构化证明计划将在此显示</div>
+          <div class="empty-hint">目标定理、关键引理、证明步骤</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 分割线 2 -->
+    <div class="panel-divider" id="panelDivider2"></div>
+
+    <!-- 右面板: Lean（上下两块） -->
+    <div class="panel panel-lean">
+      <!-- 上: 定理的 Lean 表示 -->
+      <div class="lean-sub lean-stmt-section">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="panel-icon">📐</span>
+            定理 Lean 表示
+          </div>
+          <div class="panel-subtitle" id="leanStmtSubtitle">等待输入...</div>
+        </div>
+        <div class="panel-body lean-stmt-body" id="leanStmtPanel">
+          <div class="empty-state">
+            <div class="empty-icon">📐</div>
+            <div class="empty-text">定理的 Lean 4 形式化表述</div>
+          </div>
+        </div>
+      </div>
+      <!-- 分隔线 -->
+      <div class="lean-divider"></div>
+      <!-- 下: 定理的 Lean 证明 -->
+      <div class="lean-sub lean-proof-section">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="panel-icon">⚙️</span>
+            定理 Lean 证明
+          </div>
+          <div class="panel-subtitle" id="leanProofSubtitle">等待输入...</div>
+        </div>
+        <div class="panel-body lean-proof-body" id="leanProofPanel">
+          <div class="empty-state">
+            <div class="empty-icon">⚙️</div>
+            <div class="empty-text">Lean 4 证明步骤</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══════════ 底部错误分析面板 ═══════════ -->
+  <div class="bottom-divider" id="bottomDivider"></div>
+  <section class="error-panel" id="errorPanel">
+    <div class="error-panel-header" onclick="toggleErrorPanel()">
+      <div class="error-panel-title">
+        <span class="error-panel-icon">⚠️</span>
+        <span>错误信息与分析</span>
+      </div>
+      <div class="error-panel-actions">
+        <span class="error-panel-count" id="errorCount">0</span>
+        <span class="error-panel-toggle" id="errorToggle">▼</span>
+      </div>
+    </div>
+    <div class="error-panel-body" id="errorBody">
+      <div class="error-panel-empty">暂无错误</div>
+    </div>
+  </section>
+
+  <script src="/app.js"></script>
+</body>
+</html>

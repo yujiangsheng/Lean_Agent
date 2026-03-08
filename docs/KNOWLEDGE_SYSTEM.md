@@ -1,6 +1,8 @@
-# 📚 知识系统详解
+# 📚 知识系统详解 | Knowledge System
 
-> Lean Agent 统一知识库与推理系统的完整文档
+> Gauss v3.0.0 统一知识库与推理系统的完整文档
+>
+> Complete documentation for the unified knowledge base and reasoning system
 
 ---
 

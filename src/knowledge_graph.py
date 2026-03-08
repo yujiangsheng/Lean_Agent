@@ -1,24 +1,31 @@
 #!/usr/bin/env python3
 """
 ═══════════════════════════════════════════════════════════════════════════════
-                    数学知识图谱系统
+                数学知识图谱系统 (Mathematical Knowledge Graph)
 ═══════════════════════════════════════════════════════════════════════════════
 
 管理定理之间的推导关系，支持：
-    1. 知识节点管理（定理、引理、猜想）
-    2. 推导边管理（A → B 表示 A 用于证明 B）
-    3. 图谱查询（前驱、后继、路径）
-    4. 持久化存储
+Manages derivation relationships between theorems, supporting:
+    1. 知识节点管理 (Node management) — 定理、引理、猜想
+    2. 推导边管理 (Edge management) — A → B 表示 A 用于证明 B
+    3. 图谱查询 (Graph queries) — 前驱、后继、路径、推导链
+    4. 去重检测 (Deduplication) — 基于语义相似度检测重复节点
+    5. 持久化存储 (Persistence) — JSON 格式保存与加载
 
-作者: Jiangsheng Yu
-版本: 2.1.0
+数据结构 (Data Structure):
+    - KnowledgeNode: 知识节点（Lean 4 陈述 + 中文描述 + 元数据）
+    - DerivationEdge: 推导边（前提节点 → 结论节点）
+    - KnowledgeGraph: 有向无环图 (DAG)，带多种索引
+
+作者 (Author): Jiangsheng Yu
+版本 (Version): 3.0.0
 """
 
 import json
 import hashlib
 from pathlib import Path
 from dataclasses import dataclass, field, asdict
-from typing import List, Dict, Set, Optional, Tuple
+from typing import List, Dict, Set, Optional
 from datetime import datetime
 from enum import Enum
 from collections import defaultdict

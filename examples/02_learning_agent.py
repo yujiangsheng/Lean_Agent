@@ -1,15 +1,21 @@
 #!/usr/bin/env python3
 """
 ═══════════════════════════════════════════════════════════════════════════════
-                    示例 2：持续学习智能体
+    示例 2：持续学习智能体 (Example 2: Continuous Learning Agent)
 ═══════════════════════════════════════════════════════════════════════════════
 
-演示持续学习智能体的核心功能：
-- 知识库管理
-- 猜想推导
-- 多步推理
+演示持续学习智能体的核心功能。
+Demonstrates the core features of the continuous learning agent.
 
-运行：python examples/02_learning_agent.py
+演示内容 (Demo Contents):
+    1. 初始化统一知识库 (UnifiedKnowledgeManager)
+    2. 按领域 / 层级查询知识
+    3. 关键词搜索
+    4. 创建 ContinuousLearningAgent 并运行学习轮次
+    5. 查看知识图谱统计
+
+运行 (Run):
+    python examples/02_learning_agent.py
 """
 
 import sys
@@ -29,7 +35,7 @@ from src import (
 
 def main():
     print("=" * 60)
-    print(f"  Lean Agent v{__version__}")
+    print(f"  Gauss v{__version__}")
     print(f"  作者: {__author__}")
     print("=" * 60)
     print()

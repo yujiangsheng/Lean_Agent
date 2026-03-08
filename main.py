@@ -1,33 +1,42 @@
 #!/usr/bin/env python3
 """
 ═══════════════════════════════════════════════════════════════════════════════
-                    Lean Agent - 数学家智能体
+            Gauss - 数学家智能体 (Mathematician AI Agent)
 ═══════════════════════════════════════════════════════════════════════════════
 
-统一命令行入口，支持多种运行模式：
-    - demo:     基础功能演示
-    - learn:    持续学习模式
-    - prove:    证明定理
-    - graph:    查看知识图谱
-    - insights: 查看学习洞察
+统一命令行入口，支持多种运行模式。
+Unified CLI entry point supporting multiple operation modes.
 
-支持领域:
-    基础: algebra, trigonometry, geometry
-    扩展: number_theory, solid_geometry, analytic_geometry
-          combinatorics, probability, calculus, linear_algebra
-    特殊: cross_domain (跨领域推理)
+子命令 (Subcommands):
+    - demo      : 基础功能演示 (Basic functionality demo)
+    - learn     : 持续学习模式 (Continuous learning mode)
+    - prove     : 自动证明定理 (Automated theorem proving)
+    - translate : 自然语言 → Lean 4 翻译 (NL to Lean 4 translation)
+    - graph     : 查看知识图谱 (View knowledge graph)
+    - insights  : 查看学习洞察 (View learning insights)
+    - report    : 生成知识库报告 (Generate knowledge report)
 
-使用方式：
+支持领域 (Supported Domains):
+    Gauss 可处理 Lean 4 与 Mathlib 所支持的所有数学分支。
+    内置领域: algebra, trigonometry, geometry, number_theory,
+              solid_geometry, analytic_geometry, combinatorics,
+              probability, calculus, linear_algebra, cross_domain
+
+使用方式 (Usage):
     python main.py                               # 默认演示
+    python main.py demo                          # 基础功能演示
+    python main.py prove '对于所有自然数 n, n+0=n'  # 自动证明
+    python main.py translate '1 + 1 = 2'         # 翻译为 Lean 4
     python main.py learn --rounds 5              # 学习 5 轮
     python main.py learn --minutes 30            # 学习 30 分钟
     python main.py learn --domain number_theory  # 学习数论
     python main.py learn --cross-domain          # 启用跨领域推理
     python main.py graph                         # 显示知识图谱
     python main.py insights                      # 显示学习洞察
+    python main.py report --list                 # 详细报告
 
-作者: Jiangsheng Yu
-版本: 2.1.0
+作者 (Author): Jiangsheng Yu
+版本 (Version): 3.0.0
 """
 
 import sys
@@ -71,20 +80,18 @@ def print_banner():
     banner = """
     ╔═══════════════════════════════════════════════════════════════╗
     ║                                                               ║
-    ║              Lean Agent - 数学家智能体                        ║
-    ║         Mathematician AI with Lean 4 Verification             ║
+    ║              Gauss - 数学家智能体                           ║
+    ║     Mathematician AI with Lean 4 & Mathlib Verification      ║
+    ║                                                               ║
+    ║   LLM: qwen3-coder:30b (Ollama)                              ║
     ║                                                               ║
     ║   功能:                                                       ║
+    ║   • 自动证明: 自然语言 → Lean 4 翻译 → 自动证明              ║
     ║   • 猜想生成: 从已有知识推导新猜想                           ║
-    ║   • 自动证明: 多策略组合证明引擎                             ║
     ║   • 知识图谱: 追踪定理推导关系                               ║
     ║   • 经验学习: 从成功中学习优化策略                           ║
-    ║   • 跨领域推理: 连接不同数学分支                             ║
-    ║   • 置信度评估: 不完全归纳法验证猜想                         ║
-    ║                                                               ║
-    ║   支持领域:                                                   ║
-    ║   代数 | 三角 | 几何 | 数论 | 组合 | 概率                    ║
-    ║   微积分 | 线性代数 | 解析几何 | 立体几何                    ║
+    ║   • 全数学覆盖: Lean + Mathlib 所有数学分支                 ║
+    ║   • Mathlib 集成: 利用 Lean 4 + Mathlib 验证                 ║
     ║                                                               ║
     ╚═══════════════════════════════════════════════════════════════╝
     """
@@ -96,7 +103,11 @@ def print_banner():
 # ============================================================================
 
 class LearningRunner:
-    """学习运行器"""
+    """学习运行器 (Learning Runner)
+
+    管理学习循环的生命周期，支持按轮次或按时间运行。
+    支持 Ctrl+C 优雅中断，自动保存状态后退出。
+    """
     
     def __init__(self, knowledge_path: str = "data/knowledge_graph.json",
                  experience_path: str = "data/experience.json"):
@@ -243,12 +254,133 @@ def cmd_demo(args):
         print("\n" + "="*60)
         print("✓ 演示完成！")
         print("\n下一步:")
-        print("  - python main.py learn --rounds 5  # 运行学习")
-        print("  - python main.py graph              # 查看知识图谱")
+        print("  - python main.py prove '对于所有自然数 n, n + 0 = n'  # 自动证明")
+        print("  - python main.py learn --rounds 5                     # 运行学习")
+        print("  - python main.py graph                                # 查看知识图谱")
         
     except Exception as e:
         print(f"✗ 错误: {e}")
         sys.exit(1)
+
+
+def cmd_prove(args):
+    """自动证明定理"""
+    print_banner()
+    
+    from src import create_lean_env, create_llm_agent
+    
+    # 获取定理描述
+    theorem = args.theorem
+    
+    # 如果指定了文件，从文件读取
+    if args.file:
+        try:
+            with open(args.file, 'r', encoding='utf-8') as f:
+                theorem = f.read().strip()
+            print(f"📄 从文件读取: {args.file}")
+        except FileNotFoundError:
+            print(f"✗ 文件不存在: {args.file}")
+            sys.exit(1)
+    
+    if not theorem:
+        print("✗ 请提供定理描述或使用 --file 指定文件")
+        sys.exit(1)
+    
+    print(f"📝 定理: {theorem}\n")
+    
+    # 初始化 LLM 和 Lean 环境
+    print("🔧 初始化环境...")
+    agent = create_llm_agent(
+        use_mock=args.mock,
+        model_name=args.model or "qwen3-coder:30b"
+    )
+    env = create_lean_env(
+        project_dir=args.project_dir,
+        timeout=args.timeout
+    )
+    
+    # 步骤 1: 翻译（如果不是 Lean 代码）
+    if not args.no_translate and not agent._is_lean_code(theorem):
+        print("\n🔄 步骤 1: 将数学命题翻译为 Lean 4 ...")
+        lean_code = agent.translate_to_lean4(theorem)
+        print(f"📄 Lean 4 代码:\n{'─'*40}")
+        print(lean_code)
+        print('─'*40)
+    else:
+        lean_code = theorem
+        print("📄 直接使用 Lean 4 代码")
+    
+    # 步骤 2: 自动证明
+    print(f"\n🔍 步骤 2: 自动证明 (最多 {args.retries} 次尝试)...")
+    result = agent.prove_theorem(
+        lean_code,
+        lean_env=env,
+        max_retries=args.retries
+    )
+    
+    # 输出结果
+    print("\n" + "="*60)
+    if result["success"]:
+        print("✅ 证明成功！")
+        print(f"\n最终证明:\n{'─'*40}")
+        print(result["proof"])
+        print('─'*40)
+        
+        # 保存结果
+        if args.output:
+            final_code = result["lean_code"].replace("sorry", result["proof"])
+            with open(args.output, 'w', encoding='utf-8') as f:
+                f.write(final_code)
+            print(f"\n💾 已保存到: {args.output}")
+    else:
+        print("❌ 证明失败")
+        print(f"   错误: {result.get('error', '未知')}")
+        print(f"   尝试次数: {len(result['attempts'])}")
+        
+        if args.output:
+            # 保存带 sorry 的代码供手动修改
+            with open(args.output, 'w', encoding='utf-8') as f:
+                f.write(result["lean_code"])
+            print(f"\n💾 已保存 Lean 代码 (含 sorry): {args.output}")
+    
+    print("="*60)
+
+
+def cmd_translate(args):
+    """翻译数学命题为 Lean 4"""
+    from src import create_llm_agent
+    
+    statement = args.statement
+    if args.file:
+        try:
+            with open(args.file, 'r', encoding='utf-8') as f:
+                statement = f.read().strip()
+        except FileNotFoundError:
+            print(f"✗ 文件不存在: {args.file}")
+            sys.exit(1)
+    
+    if not statement:
+        print("✗ 请提供数学命题")
+        sys.exit(1)
+    
+    agent = create_llm_agent(
+        use_mock=args.mock,
+        model_name=args.model or "qwen3-coder:30b"
+    )
+    
+    print(f"📝 输入: {statement}\n")
+    print("🔄 翻译中...\n")
+    
+    lean_code = agent.translate_to_lean4(statement)
+    
+    print(f"📄 Lean 4 代码:\n{'─'*40}")
+    print(lean_code)
+    print('─'*40)
+    
+    if args.output:
+        with open(args.output, 'w', encoding='utf-8') as f:
+            f.write(lean_code)
+        print(f"\n💾 已保存到: {args.output}")
 
 
 def cmd_learn(args):
@@ -354,17 +486,20 @@ def cmd_report(args):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Lean Agent - 数学家智能体",
+        description="Gauss - 数学家智能体",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例：
-  python main.py                          # 运行演示
-  python main.py learn --rounds 5         # 学习 5 轮
-  python main.py learn --minutes 30       # 学习 30 分钟
-  python main.py learn --domain algebra   # 只学代数
-  python main.py graph                    # 显示知识图谱
-  python main.py insights                 # 显示学习洞察
-  python main.py report --list            # 生成详细报告
+  python main.py                                          # 运行演示
+  python main.py prove '对于所有自然数 n, n + 0 = n'      # 自动证明
+  python main.py prove --file theorem.lean                # 从文件读取并证明
+  python main.py translate '1 + 1 = 2'                    # 翻译为 Lean 4
+  python main.py learn --rounds 5                         # 学习 5 轮
+  python main.py learn --minutes 30                       # 学习 30 分钟
+  python main.py learn --domain algebra                   # 只学代数
+  python main.py graph                                    # 显示知识图谱
+  python main.py insights                                 # 显示学习洞察
+  python main.py report --list                            # 生成详细报告
         """
     )
     
@@ -372,6 +507,26 @@ def main():
     
     # demo 子命令
     demo_parser = subparsers.add_parser('demo', help='演示模式')
+    
+    # prove 子命令
+    prove_parser = subparsers.add_parser('prove', help='自动证明数学定理')
+    prove_parser.add_argument('theorem', nargs='?', default='', help='数学定理描述（自然语言或 Lean 4）')
+    prove_parser.add_argument('--file', '-f', type=str, help='从文件读取定理')
+    prove_parser.add_argument('--output', '-o', type=str, help='保存结果到文件')
+    prove_parser.add_argument('--model', type=str, help='LLM 模型名称 (默认: qwen3-coder:30b)')
+    prove_parser.add_argument('--mock', action='store_true', help='使用 Mock 模式')
+    prove_parser.add_argument('--retries', type=int, default=3, help='最大重试次数')
+    prove_parser.add_argument('--timeout', type=int, default=60, help='Lean 验证超时 (秒)')
+    prove_parser.add_argument('--project-dir', type=str, help='Lean/Mathlib 项目目录')
+    prove_parser.add_argument('--no-translate', action='store_true', help='跳过翻译，直接作为 Lean 代码处理')
+    
+    # translate 子命令
+    translate_parser = subparsers.add_parser('translate', help='将数学命题翻译为 Lean 4')
+    translate_parser.add_argument('statement', nargs='?', default='', help='数学命题（自然语言）')
+    translate_parser.add_argument('--file', '-f', type=str, help='从文件读取')
+    translate_parser.add_argument('--output', '-o', type=str, help='保存结果到文件')
+    translate_parser.add_argument('--model', type=str, help='LLM 模型名称')
+    translate_parser.add_argument('--mock', action='store_true', help='使用 Mock 模式')
     
     # learn 子命令
     learn_parser = subparsers.add_parser('learn', help='学习模式')
@@ -397,7 +552,11 @@ def main():
     args = parser.parse_args()
     
     # 路由到相应命令
-    if args.command == 'learn':
+    if args.command == 'prove':
+        cmd_prove(args)
+    elif args.command == 'translate':
+        cmd_translate(args)
+    elif args.command == 'learn':
         cmd_learn(args)
     elif args.command == 'graph':
         cmd_graph(args)

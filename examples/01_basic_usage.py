@@ -1,16 +1,23 @@
 #!/usr/bin/env python3
 """
 ═══════════════════════════════════════════════════════════════════════════════
-                    示例 1：基础用法
+        示例 1：基础用法 (Example 1: Basic Usage)
 ═══════════════════════════════════════════════════════════════════════════════
 
-演示 Lean Agent 的基本功能：
-- 创建环境
-- 初始化证明
-- 执行 tactic
-- 获取建议
+演示 Gauss 的基础功能（Mock 模式，无需 Lean 4 / LLM 服务）。
+Demonstrates Gauss basic functionality in Mock mode
+(no Lean 4 or LLM service required).
 
-运行：python examples/01_basic_usage.py
+演示内容 (Demo Contents):
+    1. 创建 Lean 环境和 LLM Agent
+    2. 初始化证明状态 (ProofState)
+    3. 获取 Tactic 建议
+    4. 执行 Tactic 序列完成证明
+    5. 获取可用引理列表
+    6. 语法检查示例
+
+运行 (Run):
+    python examples/01_basic_usage.py
 """
 
 import sys

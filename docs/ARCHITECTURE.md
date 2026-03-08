@@ -1,6 +1,8 @@
-# 🏗️ 系统架构设计
+# 🏗️ 系统架构设计 | System Architecture
 
-> Lean Agent 系统架构与核心组件详解
+> Gauss v3.0.0 系统架构与核心组件详解
+>
+> System architecture and core component documentation
 
 ---
 
@@ -20,7 +22,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                           Lean Agent 系统架构                                │
+│                           Gauss 系统架构                                │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │  ┌───────────────────────────────────────────────────────────────────────┐  │
@@ -51,7 +53,7 @@
 │  │                       知识层 (Knowledge Layer)                        │  │
 │  │  ┌─────────────────────────────────────────────────────────────────┐  │  │
 │  │  │            UnifiedKnowledgeManager（统一知识库管理器）            │  │  │
-│  │  │  11 个数学领域 × 3 个知识层级 = 67 条内置知识                    │  │  │
+│  │  │  内置 11 个数学领域，可扩展至 Lean + Mathlib 所有分支             │  │  │
 │  │  └─────────────────────────────────────────────────────────────────┘  │  │
 │  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐    │  │
 │  │  │ 代数     │ │ 三角函数 │ │ 几何     │ │ 数论     │ │ ...      │    │  │
@@ -269,18 +271,19 @@ features = {
 
 ## 模块详解
 
-### 源码文件列表
+### 源码文件列表 | Source Files
 
-| 文件 | 行数 | 说明 |
-|------|------|------|
-| `__init__.py` | ~200 | 包入口，导出所有公共 API |
-| `learning_agent.py` | ~2200 | 持续学习智能体（核心） |
-| `unified_knowledge.py` | ~1700 | 统一知识库 |
-| `knowledge_graph.py` | ~540 | 知识图谱管理 |
-| `experience_learner.py` | ~540 | 经验学习系统 |
-| `lean_env.py` | ~300 | Lean 4 环境交互 |
-| `llm_agent.py` | ~200 | LLM 集成 |
-| `utils.py` | ~100 | 工具函数 |
+| 文件 | 行数 | 说明 | Description |
+|------|------|------|-------------|
+| `__init__.py` | ~200 | 包入口，导出所有公共 API | Package init, public API exports |
+| `learning_agent.py` | ~2200 | 持续学习智能体 + 多步推理 | Learning agent + multi-step reasoning |
+| `unified_knowledge.py` | ~1700 | 统一知识库 (11 领域) | Unified knowledge (11 domains) |
+| `knowledge_graph.py` | ~540 | 知识图谱 DAG 管理 | Knowledge graph DAG |
+| `experience_learner.py` | ~540 | 经验学习 + 智能去重 | Experience learning + dedup |
+| `lean_env.py` | ~300 | Lean 4 环境交互 | Lean 4 environment interaction |
+| `llm_agent.py` | ~500 | LLM 集成 (Ollama/Qwen/Mock) | LLM integration |
+| `mathlib_registry.py` | ~400 | Mathlib 模块注册表 | Mathlib module registry |
+| `utils.py` | ~100 | 工具函数 | Utility functions |
 
 ---
 
@@ -329,6 +332,6 @@ def _apply_new_operation(self, theorem: MathKnowledge) -> Optional[str]:
 
 ---
 
-**作者**: Jiangsheng Yu  
-**版本**: 2.1.0  
-**更新日期**: 2024
+**作者 (Author)**: Jiangsheng Yu  
+**版本 (Version)**: 3.0.0  
+**更新日期 (Updated)**: 2025

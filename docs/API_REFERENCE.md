@@ -1,6 +1,8 @@
-# 📖 API 参考手册
+# 📖 API 参考手册 | API Reference
 
-> Lean Agent 完整 API 文档
+> Gauss v3.0.0 完整 API 文档
+>
+> Complete API documentation for Gauss v3.0.0
 
 ---
 
@@ -18,7 +20,7 @@
 
 ---
 
-## 快速导入
+## 快速导入 | Quick Import
 
 ```python
 from src import (
@@ -51,6 +53,7 @@ from src import (
     
     # LLM
     BaseLLMAgent,
+    OllamaAgent,
     QwenAgent,
     MockLLMAgent,
     create_llm_agent,

@@ -1,39 +1,41 @@
 """
 ═══════════════════════════════════════════════════════════════════════════════
-                    Lean Agent - 数学家智能体
+                    Gauss - 数学家智能体
+        Mathematical AI Agent with Lean 4 & Mathlib Formal Verification
 ═══════════════════════════════════════════════════════════════════════════════
 
-一个结合大语言模型与 Lean 4 形式化验证的数学研究智能体。
+Gauss 是一个结合大语言模型（LLM）与 Lean 4 + Mathlib 形式化验证的数学研究智能体，
+能够处理 Lean 与 Mathlib 所覆盖的所有数学分支。
+Gauss is an AI-powered mathematical research agent combining LLMs with
+Lean 4 + Mathlib formal verification, capable of handling all branches
+of mathematics covered by Lean and Mathlib.
 
-核心功能：
-- 猜想生成：基于多步推理从已有知识推导新猜想
-- 自动证明：多策略组合证明引擎
-- 知识图谱：追踪定理推导关系
-- 经验学习：从成功中学习优化策略
-- 跨领域推理：连接不同数学分支
+核心功能 (Core Features):
+    - 猜想生成 (Conjecture Generation):
+        基于多步推理链 (Chain-of-Thought) 从已有知识推导新猜想
+    - 自动证明 (Automated Proving):
+        多策略组合证明引擎，支持 Mathlib 库中的 tactics
+    - 知识图谱 (Knowledge Graph):
+        追踪定理间的推导关系，支持路径查询与可视化
+    - 经验学习 (Experience Learning):
+        从成功的证明中学习模式，智能去重与策略推荐
+    - 全数学覆盖 (Full Math Coverage):
+        处理 Lean 4 与 Mathlib 所支持的所有数学分支
 
-知识层级：
-- 基础知识：公理 (Axiom) + 定义 (Definition)
-- 核心定理：经典、已验证的重要定理 (Core)
-- 派生定理：从其他定理推导出来 (Derived)
-- 猜想：待证明的命题 (Conjecture)
-
-支持领域：
-- 代数、三角函数、平面几何（基础）
-- 初等数论、立体几何、解析几何
-- 组合计数、概率统计、微积分、线性代数
-- 跨领域推理
-
-快速开始：
+快速开始 (Quick Start):
     >>> from src import ContinuousLearningAgent
     >>> agent = ContinuousLearningAgent()
     >>> agent.run_learning_round(domain="algebra")
 
-作者: Jiangsheng Yu
-版本: 2.1.0
+    >>> from src import UnifiedKnowledgeManager, MathDomain
+    >>> km = UnifiedKnowledgeManager()
+    >>> km.print_summary()
+
+作者 (Author): Jiangsheng Yu
+版本 (Version): 3.0.0
 """
 
-__version__ = "2.1.0"
+__version__ = "3.0.0"
 __author__ = "Jiangsheng Yu"
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -77,6 +79,7 @@ from .lean_env import (
 # LLM Agent
 from .llm_agent import (
     BaseLLMAgent,
+    OllamaAgent,
     QwenAgent,
     MockLLMAgent,
     create_llm_agent
@@ -92,6 +95,7 @@ from .unified_knowledge import (
     MathKnowledge,
     MathTheorem,
     ConjecturePattern,
+    DomainKnowledge,
     
     # 领域知识类
     AlgebraKnowledge,
@@ -104,6 +108,20 @@ from .unified_knowledge import (
     ProbabilityKnowledge,
     CalculusKnowledge,
     LinearAlgebraKnowledge,
+    RingTheoryKnowledge,
+    GroupTheoryKnowledge,
+    FieldTheoryKnowledge,
+    TopologyKnowledge,
+    MeasureTheoryKnowledge,
+    CategoryTheoryKnowledge,
+    OrderTheoryKnowledge,
+    SetTheoryKnowledge,
+    LogicKnowledge,
+    AlgebraicGeometryKnowledge,
+    AlgebraicTopologyKnowledge,
+    RepresentationTheoryKnowledge,
+    DynamicsKnowledge,
+    InformationTheoryKnowledge,
     CrossDomainKnowledge,
     
     # 管理器
@@ -161,6 +179,7 @@ __all__ = [
     
     # LLM
     "BaseLLMAgent",
+    "OllamaAgent",
     "QwenAgent",
     "MockLLMAgent",
     "create_llm_agent",
@@ -171,6 +190,7 @@ __all__ = [
     "MathKnowledge",
     "MathTheorem",
     "ConjecturePattern",
+    "DomainKnowledge",
     "AlgebraKnowledge",
     "TrigonometryKnowledge",
     "GeometryKnowledge",
@@ -181,6 +201,20 @@ __all__ = [
     "ProbabilityKnowledge",
     "CalculusKnowledge",
     "LinearAlgebraKnowledge",
+    "RingTheoryKnowledge",
+    "GroupTheoryKnowledge",
+    "FieldTheoryKnowledge",
+    "TopologyKnowledge",
+    "MeasureTheoryKnowledge",
+    "CategoryTheoryKnowledge",
+    "OrderTheoryKnowledge",
+    "SetTheoryKnowledge",
+    "LogicKnowledge",
+    "AlgebraicGeometryKnowledge",
+    "AlgebraicTopologyKnowledge",
+    "RepresentationTheoryKnowledge",
+    "DynamicsKnowledge",
+    "InformationTheoryKnowledge",
     "CrossDomainKnowledge",
     "UnifiedKnowledgeManager",
     "InductiveVerifier",

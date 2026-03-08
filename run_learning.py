@@ -1,15 +1,31 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Lean Agent 持续学习脚本
+═══════════════════════════════════════════════════════════════════════════════
+            Gauss 持续学习脚本 (Continuous Learning Script)
+═══════════════════════════════════════════════════════════════════════════════
 
-用法:
-    python run_learning.py [分钟数]
-    
-示例:
-    python run_learning.py 5      # 学习5分钟
-    python run_learning.py 30     # 学习30分钟
-    python run_learning.py        # 默认学习10分钟
+简化版持续学习入口，按时间驱动学习循环。
+Simplified continuous learning entry point, driven by time duration.
+
+工作流程 (Workflow):
+    1. 初始化 ContinuousLearningAgent
+    2. 按时间循环执行学习轮次
+    3. 在各领域间轮换 (algebra → trig → geometry → ...)
+    4. 每 5 轮显示统计信息
+    5. 完成后自动保存状态
+
+用法 (Usage):
+    python run_learning.py [minutes] [-q]
+
+示例 (Examples):
+    python run_learning.py 5      # 学习 5 分钟
+    python run_learning.py 30     # 学习 30 分钟
+    python run_learning.py        # 默认学习 10 分钟
+    python run_learning.py -q 60  # 安静模式学习 60 分钟
+
+作者 (Author): Jiangsheng Yu
+版本 (Version): 3.0.0
 """
 
 import sys
@@ -28,7 +44,7 @@ def run_learning(duration_minutes: int = 10, verbose: bool = True):
         verbose: 是否显示详细输出
     """
     print('=' * 60)
-    print(f'     Lean Agent v2.1.0 - 持续学习 ({duration_minutes}分钟)')
+    print(f'     Gauss v3.0.0 - 持续学习 ({duration_minutes}分钟)')
     print('=' * 60)
     
     agent = ContinuousLearningAgent()
@@ -79,7 +95,7 @@ def run_learning(duration_minutes: int = 10, verbose: bool = True):
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Lean Agent 持续学习',
+        description='Gauss 持续学习',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog='''
 示例:
